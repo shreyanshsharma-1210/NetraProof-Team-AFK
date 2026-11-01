@@ -107,7 +107,7 @@ public class NetraProofOnDeviceEngine {
         opts.setIntraOpNumThreads(numThreads);
         opts.setOptimizationLevel(OrtSession.SessionOptions.OptLevel.ALL_OPT);
 
-        File graderFile = copyAssetToInternalStorage(GRADER_MODEL_ASSET, 29180056L);
+        File graderFile = copyAssetToInternalStorage(GRADER_MODEL_ASSET, 16009989L);
         if (graderFile == null || !graderFile.exists() || graderFile.length() < 1000000) {
             throw new IllegalStateException("Grader model asset invalid or missing: " + GRADER_MODEL_ASSET);
         }
@@ -129,7 +129,7 @@ public class NetraProofOnDeviceEngine {
         opts.setIntraOpNumThreads(numThreads);
         opts.setOptimizationLevel(OrtSession.SessionOptions.OptLevel.ALL_OPT);
 
-        File lesionFile = copyAssetToInternalStorage(LESIONS_MODEL_ASSET, 34899951L);
+        File lesionFile = copyAssetToInternalStorage(LESIONS_MODEL_ASSET, 138020030L);
         if (lesionFile == null || !lesionFile.exists() || lesionFile.length() < 1000000) {
             throw new IllegalStateException("Lesion model asset invalid or missing: " + LESIONS_MODEL_ASSET);
         }
@@ -232,9 +232,9 @@ public class NetraProofOnDeviceEngine {
         ensureGraderInitialized();
         long startTime = System.currentTimeMillis();
 
-        // 1. Pad to square and resize to target 456x456 (matching EfficientNet-B5 architecture)
-        final int targetW = 456;
-        final int targetH = 456;
+        // 1. Pad to square and resize to target 384x384 (matching clean FP32 EfficientNet-B5 grader input [1,3,384,384])
+        final int targetW = 384;
+        final int targetH = 384;
         Bitmap square = padToSquare(fundusBitmap);
         Bitmap scaled = Bitmap.createScaledBitmap(square, targetW, targetH, true);
 
