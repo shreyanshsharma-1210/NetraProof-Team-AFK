@@ -96,72 +96,97 @@ public class NetraProofOnDeviceEngine {
         }).start();
     }
 
-    private synchronized void ensureInitialized() throws Exception {
+    public synchronized void ensureGraderInitialized() throws Exception {
         if (ortEnv == null) {
             ortEnv = OrtEnvironment.getEnvironment();
         }
+        if (graderSession != null) return;
 
         OrtSession.SessionOptions opts = new OrtSession.SessionOptions();
         int numThreads = Math.max(2, Math.min(4, Runtime.getRuntime().availableProcessors()));
         opts.setIntraOpNumThreads(numThreads);
         opts.setOptimizationLevel(OrtSession.SessionOptions.OptLevel.ALL_OPT);
 
-        if (graderSession == null) {
-            File graderFile = copyAssetToInternalStorage(GRADER_MODEL_ASSET);
-            if (graderFile == null || !graderFile.exists()) {
-                throw new IllegalStateException("Grader model asset not found: " + GRADER_MODEL_ASSET);
-            }
-            graderSession = ortEnv.createSession(graderFile.getAbsolutePath(), opts);
-            if (graderSession.getInputNames() != null && !graderSession.getInputNames().isEmpty()) {
-                graderInputName = graderSession.getInputNames().iterator().next();
-            }
-            Log.i(TAG, "Grader model loaded from " + graderFile.getName() + " (" + (graderFile.length() / 1024) + " KB), input=" + graderInputName);
+        File graderFile = copyAssetToInternalStorage(GRADER_MODEL_ASSET, 29180056L);
+        if (graderFile == null || !graderFile.exists() || graderFile.length() < 1000000) {
+            throw new IllegalStateException("Grader model asset invalid or missing: " + GRADER_MODEL_ASSET);
         }
+        graderSession = ortEnv.createSession(graderFile.getAbsolutePath(), opts);
+        if (graderSession.getInputNames() != null && !graderSession.getInputNames().isEmpty()) {
+            graderInputName = graderSession.getInputNames().iterator().next();
+        }
+        Log.i(TAG, "Grader model loaded: " + graderFile.getName() + " (" + (graderFile.length() / 1024) + " KB), input=" + graderInputName);
+    }
 
-        if (lesionSession == null) {
-            File lesionFile = copyAssetToInternalStorage(LESIONS_MODEL_ASSET);
-            if (lesionFile == null || !lesionFile.exists()) {
-                throw new IllegalStateException("Lesion model asset not found: " + LESIONS_MODEL_ASSET);
-            }
-            lesionSession = ortEnv.createSession(lesionFile.getAbsolutePath(), opts);
-            if (lesionSession.getInputNames() != null && !lesionSession.getInputNames().isEmpty()) {
-                lesionInputName = lesionSession.getInputNames().iterator().next();
-            }
-            Log.i(TAG, "Lesion model loaded from " + lesionFile.getName() + " (" + (lesionFile.length() / 1024) + " KB), input=" + lesionInputName);
+    public synchronized void ensureLesionInitialized() throws Exception {
+        if (ortEnv == null) {
+            ortEnv = OrtEnvironment.getEnvironment();
+        }
+        if (lesionSession != null) return;
+
+        OrtSession.SessionOptions opts = new OrtSession.SessionOptions();
+        int numThreads = Math.max(2, Math.min(4, Runtime.getRuntime().availableProcessors()));
+        opts.setIntraOpNumThreads(numThreads);
+        opts.setOptimizationLevel(OrtSession.SessionOptions.OptLevel.ALL_OPT);
+
+        File lesionFile = copyAssetToInternalStorage(LESIONS_MODEL_ASSET, 34899951L);
+        if (lesionFile == null || !lesionFile.exists() || lesionFile.length() < 1000000) {
+            throw new IllegalStateException("Lesion model asset invalid or missing: " + LESIONS_MODEL_ASSET);
+        }
+        lesionSession = ortEnv.createSession(lesionFile.getAbsolutePath(), opts);
+        if (lesionSession.getInputNames() != null && !lesionSession.getInputNames().isEmpty()) {
+            lesionInputName = lesionSession.getInputNames().iterator().next();
+        }
+        Log.i(TAG, "Lesion model loaded: " + lesionFile.getName() + " (" + (lesionFile.length() / 1024) + " KB), input=" + lesionInputName);
+    }
+
+    private synchronized void ensureInitialized() throws Exception {
+        ensureGraderInitialized();
+        try {
+            ensureLesionInitialized();
+        } catch (Exception e) {
+            Log.w(TAG, "Lesion initialization warning (grader unaffected): " + e.getMessage());
         }
     }
 
-    private File copyAssetToInternalStorage(String assetName) {
+    private synchronized File copyAssetToInternalStorage(String assetName, long expectedLength) {
         try {
             File modelsDir = new File(appContext.getFilesDir(), "on_device_models");
             if (!modelsDir.exists()) modelsDir.mkdirs();
 
             File outFile = new File(modelsDir, assetName);
 
-            long assetLength = -1;
-            try (AssetFileDescriptor afd = appContext.getAssets().openFd(assetName)) {
-                assetLength = afd.getLength();
-            } catch (Exception ignored) {}
-
-            // Verify if already copied and length matches
+            // If already extracted and matches expected length, reuse immediately
             if (outFile.exists() && outFile.length() > 0) {
-                if (assetLength <= 0 || outFile.length() == assetLength) {
+                if (expectedLength <= 0 || outFile.length() == expectedLength) {
                     return outFile;
                 }
-                Log.i(TAG, "Asset " + assetName + " size changed (" + outFile.length() + " -> " + assetLength + "). Re-copying...");
+                Log.i(TAG, "Asset " + assetName + " size mismatch (" + outFile.length() + " vs " + expectedLength + "). Re-copying...");
                 outFile.delete();
             }
 
+            File tempFile = new File(modelsDir, assetName + ".tmp");
+            if (tempFile.exists()) tempFile.delete();
+
             Log.i(TAG, "Extracting " + assetName + " from assets to " + outFile.getAbsolutePath());
             try (InputStream in = appContext.getAssets().open(assetName);
-                 FileOutputStream out = new FileOutputStream(outFile)) {
+                 FileOutputStream out = new FileOutputStream(tempFile)) {
                 byte[] buffer = new byte[65536];
                 int read;
                 while ((read = in.read(buffer)) != -1) {
                     out.write(buffer, 0, read);
                 }
+                out.flush();
             }
-            return outFile;
+
+            if (tempFile.exists() && tempFile.length() > 0) {
+                if (outFile.exists()) outFile.delete();
+                if (tempFile.renameTo(outFile)) {
+                    Log.i(TAG, "Successfully extracted " + assetName + " (" + outFile.length() + " bytes)");
+                    return outFile;
+                }
+            }
+            return tempFile;
         } catch (Exception e) {
             Log.e(TAG, "Error copying asset " + assetName, e);
             return null;
@@ -204,7 +229,7 @@ public class NetraProofOnDeviceEngine {
      * Takes ~180-350ms on mobile CPU/NNAPI.
      */
     public OnDeviceScreeningResult screen(Bitmap fundusBitmap) throws Exception {
-        ensureInitialized();
+        ensureGraderInitialized();
         long startTime = System.currentTimeMillis();
 
         // 1. Pad to square and resize to target 456x456 (matching EfficientNet-B5 architecture)
@@ -364,7 +389,7 @@ public class NetraProofOnDeviceEngine {
      * Takes ~1.0-1.4s on mobile CPU.
      */
     public OnDeviceLesionResult segmentLesions(Bitmap fundusBitmap, float threshold) throws Exception {
-        ensureInitialized();
+        ensureLesionInitialized();
         long startTime = System.currentTimeMillis();
 
         final int targetW = 512;

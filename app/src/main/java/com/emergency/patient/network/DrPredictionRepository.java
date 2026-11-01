@@ -333,6 +333,6 @@ public class DrPredictionRepository {
         // Retinal red-orange reflectance check
         double rRatio = meanR / total;
         double bRatio = meanB / total;
-        return (rRatio < 0.38 || bRatio > 0.32 || meanB > meanR * 0.95 || meanG > meanR * 1.20);
+        return (rRatio < 0.28 || bRatio > 0.42);
     }
 }
