@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginStart="16dp"
+    android:layout_marginEnd="16dp"
+    android:layout_marginTop="10dp"
+    android:layout_marginBottom="6dp"
+    android:background="@drawable/bg_netra_card"
+    android:elevation="2dp"
+    android:orientation="vertical"
+    android:padding="16dp">
+
+    <!-- Top Row: Doctor Avatar + Info + Distance Badge -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="top"
+        android:orientation="horizontal">
+
+        <!-- Avatar Container with Online Indicator -->
+        <FrameLayout
+            android:layout_width="56dp"
+            android:layout_height="56dp">
+
+            <View
+                android:layout_width="52dp"
+                android:layout_height="52dp"
+                android:layout_gravity="center"
+                android:background="@drawable/bg_doctor_avatar" />
+
+            <TextView
+                android:id="@+id/tvDoctorInitials"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                tools:text="AS" />
+
+            <!-- Online for Video Pulse Indicator -->
+            <View
+                android:id="@+id/viewOnlineIndicator"
+                android:layout_width="14dp"
+                android:layout_height="14dp"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="2dp"
+                android:layout_marginBottom="2dp"
+                android:background="@drawable/bg_online_dot" />
+
+        </FrameLayout>
+
+        <!-- Doctor Details Column -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <!-- Name + Verified Badge + Distance -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvDoctorName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Dr. Arvind Shrivastava" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:layout_marginStart="4dp"
+                    android:src="@drawable/ic_verified_doctor"
+                    app:tint="@color/netra_primary_teal" />
+
+            </LinearLayout>
+
+            <!-- Specialty Title -->
+            <TextView
+                android:id="@+id/tvSpecialtyTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:textColor="@color/netra_primary_teal"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                tools:text="Senior Vitreo-Retinal Surgeon" />
+
+            <!-- Qualifications -->
+            <TextView
+                android:id="@+id/tvQualifications"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:textColor="@color/netra_text_secondary"
+                android:textSize="11sp"
+                tools:text="MBBS, MS (Ophth), FVR (Sankara Nethralaya)" />
+
+            <!-- Hospital & Locality + Distance -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tvHospitalAndLocality"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="1"
+                    android:textColor="#3C5060"
+                    android:textSize="12sp"
+                    tools:text="Netra Eye Centre • Navlakha" />
+
+                <!-- Distance Pill -->
+                <TextView
+                    android:id="@+id/tvDistance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_diabetic_badge"
+                    android:paddingStart="8dp"
+                    android:paddingTop="2dp"
+                    android:paddingEnd="8dp"
+                    android:paddingBottom="2dp"
+                    android:textColor="@color/netra_primary_teal"
+                    android:textSize="11sp"
+                    android:textStyle="bold"
+                    tools:text="1.4 km away" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Rating, Experience & Badge Strip -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Rating -->
+        <TextView
+            android:id="@+id/tvRating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#B46A00"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:text="⭐ 4.9 (142 reviews)" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="•"
+            android:textColor="@color/netra_text_secondary"
+            android:textSize="12sp" />
+
+        <!-- Experience -->
+        <TextView
+            android:id="@+id/tvExperience"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:textColor="@color/netra_text_secondary"
+            android:textSize="12sp"
+            tools:text="16 yrs exp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <!-- Highlight Badge -->
+        <TextView
+            android:id="@+id/tvHighlightBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="#D97706"
+            android:textSize="11sp"
+            android:textStyle="bold"
+            tools:text="⭐ Top Retinal Specialist" />
+
+    </LinearLayout>
+
+    <!-- Diabetic Specific Conditions Treated (Chips Flow) -->
+    <LinearLayout
+        android:id="@+id/layoutConditionsTreated"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:orientation="horizontal">
+        <!-- Injected dynamically in adapter -->
+    </LinearLayout>
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:background="#EDF2F7" />
+
+    <!-- Slot & Fee Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Next Available Slot -->
+        <TextView
+            android:id="@+id/tvNextSlot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="#15803D"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            tools:text="🟢 Next Slot: Today at 03:30 PM" />
+
+        <!-- Fee -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Fee: "
+            android:textColor="@color/netra_text_secondary"
+            android:textSize="12sp" />
+
+        <TextView
+            android:id="@+id/tvFee"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            tools:text="₹700" />
+
+    </LinearLayout>
+
+    <!-- Action Buttons Row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <!-- Video Teleconsult Button (Primary) -->
+        <LinearLayout
+            android:id="@+id/btnVideoConsult"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1.2"
+            android:background="@drawable/bg_netra_btn_primary"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_video_call" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Video Consult"
+                android:textColor="#FFFFFF"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Book In-Clinic Visit Button (Secondary) -->
+        <LinearLayout
+            android:id="@+id/btnBookVisit"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:layout_weight="1"
+            android:background="@drawable/bg_btn_secondary_outline"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_calendar_check"
+                app:tint="@color/netra_primary_teal" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="6dp"
+                android:text="Book Visit"
+                android:textColor="@color/netra_primary_teal"
+                android:textSize="12sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Direct Phone Call Button (Circle Icon) -->
+        <FrameLayout
+            android:id="@+id/btnCallClinic"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="8dp"
+            android:background="@drawable/bg_btn_secondary_outline"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_phone_dial" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

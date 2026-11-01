@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_step2_medical_history.xml — NetraProof Onboarding Step 2: Clinical Assessment
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/netra_bg">
+
+    <!-- Progress Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:layout_width="145dp"
+            android:layout_height="36dp"
+            android:src="@drawable/app_header_logo"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"
+            android:contentDescription="NetraProof Logo" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tv_quiz_progress"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Question 1 of 5"
+            android:textColor="@color/netra_primary_teal"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_netra_pill_teal"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_quiz_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Clinical Health Assessment"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/netra_deep_navy" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="NetraProof calibrates diabetic retinopathy risk thresholds and contraindication graphs using your clinical background."
+        android:textColor="@color/netra_text_secondary"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="16dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_netra_card"
+            android:padding="18dp"
+            android:elevation="2dp"
+            android:layout_marginBottom="12dp">
+
+            <TextView
+                android:id="@+id/tv_question_text"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Which category encompasses your most significant past medical diagnosis?"
+                android:textSize="15.5sp"
+                android:textStyle="bold"
+                android:textColor="@color/netra_deep_navy"
+                android:layout_marginBottom="16dp"
+                android:lineSpacingExtra="3dp"/>
+
+            <RadioGroup
+                android:id="@+id/rg_options"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rb_option_a"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Option A"
+                    android:paddingVertical="10dp"
+                    android:textSize="13.5sp"
+                    android:textColor="@color/netra_deep_navy"
+                    android:buttonTint="@color/netra_primary_teal"
+                    android:layout_marginBottom="6dp"/>
+
+                <RadioButton
+                    android:id="@+id/rb_option_b"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Option B"
+                    android:paddingVertical="10dp"
+                    android:textSize="13.5sp"
+                    android:textColor="@color/netra_deep_navy"
+                    android:buttonTint="@color/netra_primary_teal"
+                    android:layout_marginBottom="6dp"/>
+
+                <RadioButton
+                    android:id="@+id/rb_option_c"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Option C"
+                    android:paddingVertical="10dp"
+                    android:textSize="13.5sp"
+                    android:textColor="@color/netra_deep_navy"
+                    android:buttonTint="@color/netra_primary_teal"
+                    android:layout_marginBottom="6dp"/>
+
+                <RadioButton
+                    android:id="@+id/rb_option_d"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Option D"
+                    android:paddingVertical="10dp"
+                    android:textSize="13.5sp"
+                    android:textColor="@color/netra_deep_navy"
+                    android:buttonTint="@color/netra_primary_teal"
+                    android:layout_marginBottom="6dp"/>
+
+                <RadioButton
+                    android:id="@+id/rb_option_e"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Other / Specify"
+                    android:paddingVertical="10dp"
+                    android:textSize="13.5sp"
+                    android:textColor="@color/netra_deep_navy"
+                    android:buttonTint="@color/netra_primary_teal"
+                    android:layout_marginBottom="6dp"/>
+
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/et_other_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Please specify clinical details..."
+                android:textColor="@color/netra_deep_navy"
+                android:textColorHint="@color/netra_text_secondary"
+                android:textSize="13sp"
+                android:visibility="gone"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/bg_netra_search"
+                android:padding="12dp"
+                android:layout_marginBottom="14dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_back_quiz"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Back"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="@color/netra_text_secondary"/>
+
+        <Button
+            android:id="@+id/btn_next_quiz"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="Next Question ❯"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/netra_primary_teal"/>
+    </LinearLayout>
+
+</LinearLayout>

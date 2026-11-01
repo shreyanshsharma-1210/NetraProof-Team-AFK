@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Symptom Type *"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerSymptomType"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_search"
+            android:padding="8dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Body Location / Area"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/etSymptomLocation"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:hint="e.g. Toes, Soles, Heels, Ankles"
+            android:textColor="@color/netra_text_primary"
+            android:background="@drawable/bg_netra_search"
+            android:padding="12dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Side Affected"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <Spinner
+            android:id="@+id/spinnerSymptomSide"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_search"
+            android:padding="8dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Date First Noticed *"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/tvSymptomDatePicked"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_search"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Current Status"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <Spinner
+            android:id="@+id/spinnerSymptomStatus"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_search"
+            android:padding="8dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Personal Description (Optional)"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/etSymptomDescription"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:hint="e.g. Mild pins-and-needles sensation mostly when resting in bed"
+            android:textColor="@color/netra_text_primary"
+            android:background="@drawable/bg_netra_search"
+            android:padding="12dp"
+            android:gravity="top|start"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+</ScrollView>
+

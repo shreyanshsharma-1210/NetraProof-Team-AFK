@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clipToPadding="false"
+        android:paddingBottom="100dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Confirm Medication"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_text_primary"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="8dp"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Please review the details and schedule before saving."
+                android:textSize="14sp"
+                android:textColor="@color/color_text_secondary"
+                android:layout_marginBottom="32dp"/>
+
+            <!-- Medicine Card -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/color_surface"
+                android:layout_marginBottom="24dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="20dp">
+
+                    <TextView
+                        android:id="@+id/tv_confirm_drug_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Paracetamol"
+                        android:textSize="20sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/color_text_primary"/>
+
+                    <TextView
+                        android:id="@+id/tv_confirm_brand_name"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Generic"
+                        android:textSize="13sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/color_primary_orange"
+                        android:textAllCaps="true"
+                        android:layout_marginTop="2dp"/>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="@color/color_divider"
+                        android:layout_marginVertical="16dp"/>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="DOSAGE"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/color_text_secondary"/>
+                            <TextView
+                                android:id="@+id/tv_confirm_dosage"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="1 tablet daily"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/color_text_primary"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="EXPIRY"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/color_text_secondary"/>
+                            <TextView
+                                android:id="@+id/tv_confirm_expiry"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="12/2025"
+                                android:textSize="14sp"
+                                android:textStyle="bold"
+                                android:textColor="@color/color_text_primary"
+                                android:layout_marginTop="4dp"/>
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Schedule Preview Section -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginBottom="12dp">
+                
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reminder Schedule 🔔"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_text_primary"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Tap any time slot to edit or select a daily frequency:"
+                    android:textSize="12sp"
+                    android:textColor="@color/color_text_secondary"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp"/>
+
+                <!-- Quick Frequency Chips -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:scrollbars="none"
+                    android:layout_marginBottom="12dp">
+
+                    <com.google.android.material.chip.ChipGroup
+                        android:id="@+id/chip_group_frequency"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        app:singleSelection="true"
+                        app:selectionRequired="false">
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_freq_1x"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1x Daily"
+                            android:textSize="12sp"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_freq_2x"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="2x Daily"
+                            android:textSize="12sp"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_freq_3x"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="3x Daily"
+                            android:textSize="12sp"/>
+
+                        <com.google.android.material.chip.Chip
+                            android:id="@+id/chip_freq_4x"
+                            style="@style/Widget.MaterialComponents.Chip.Choice"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4x Daily"
+                            android:textSize="12sp"/>
+                    </com.google.android.material.chip.ChipGroup>
+                </HorizontalScrollView>
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="2dp"
+                app:cardBackgroundColor="@color/color_surface"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout
+                    android:id="@+id/layout_schedule_preview"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+                    <!-- Dynamic schedule items will be added here -->
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Add Reminder Time Button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btn_add_reminder_time"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="+ Add Reminder Time"
+                android:textAllCaps="false"
+                android:textSize="13sp"
+                android:textColor="@color/color_primary_orange"
+                app:strokeColor="@color/color_primary_orange"
+                app:strokeWidth="1.5dp"
+                app:cornerRadius="14dp"
+                android:layout_marginBottom="32dp"/>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="horizontal"
+        android:padding="16dp"
+        android:background="@android:color/white"
+        android:elevation="8dp">
+
+        <Button
+            android:id="@+id/btn_confirm_save"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:text="Confirm &amp; Schedule"
+            android:textAllCaps="false"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/color_primary_orange"
+            app:cornerRadius="16dp"/>
+    </LinearLayout>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

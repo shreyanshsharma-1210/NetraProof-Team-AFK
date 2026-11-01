@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    dialog_monsoon_advisory.xml — NetraProof Animated Monsoon Health & Vector Advisory
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="20dp">
+
+    <!-- Card Root -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card_white"
+        android:orientation="vertical"
+        android:elevation="12dp">
+
+        <!-- Top Animated Rain Header -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="120dp"
+            android:background="#E6087F68">
+
+            <!-- Canvas Falling Rain Simulation -->
+            <com.emergency.patient.views.RainDropletsAnimationView
+                android:id="@+id/rainDropletsView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <!-- Header Content Overlay -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🌧️ MONSOON HEALTH ADVISORY"
+                    android:textColor="#FFFFFF"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.04" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Mhow, MP • High Vector &amp; Humidity Risk"
+                    android:textColor="#E0F2FE"
+                    android:textSize="11sp"
+                    android:layout_marginTop="4dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Dengue &amp; Malaria Surge Warning"
+                    android:textColor="#FEF08A"
+                    android:textSize="11.5sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="4dp" />
+            </LinearLayout>
+        </FrameLayout>
+
+        <!-- Advisory Body -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="18dp">
+
+            <!-- Patient Past Condition Warning -->
+            <LinearLayout
+                android:id="@+id/llConditionWarning"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="#FEF2F2"
+                android:orientation="horizontal"
+                android:padding="10dp">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_alert_triangle_red"
+                    android:layout_marginTop="2dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="8dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Personalized Clinical Risk:"
+                        android:textColor="#991B1B"
+                        android:textSize="11.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvConditionRiskAdvice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="High humidity and sudden temperature drops can exacerbate respiratory sensitivity and blood pressure fluctuations."
+                        android:textColor="#7F1D1D"
+                        android:textSize="11sp"
+                        android:layout_marginTop="2dp"
+                        android:lineSpacingExtra="1.5dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Vector Protection Rules List -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mandatory Rainy Season Protocols:"
+                android:textColor="#0D2140"
+                android:textSize="12.5sp"
+                android:textStyle="bold"
+                android:layout_marginTop="14dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="🦟 1. Dengue &amp; Malaria Prevention: Empty coolers, flower pots, and unsealed containers to eliminate Aedes mosquito breeding.\n\n🛡️ 2. Vector Defense: Apply DEET mosquito repellent lotion and wear full-length clothing during dawn and dusk.\n\n💧 3. Water Sanitation: Consume only boiled or purified water to prevent enteric typhoid and gastroenteritis.\n\n💊 4. Medication Compliance: Continue prescribed maintenance doses. Do NOT take NSAIDs (like Ibuprofen) if fever develops without doctor approval."
+                android:textColor="#334155"
+                android:textSize="11.5sp"
+                android:layout_marginTop="8dp"
+                android:lineSpacingExtra="2.5dp" />
+
+            <!-- Action Button -->
+            <Button
+                android:id="@+id/btnDismissMonsoon"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Acknowledge &amp; Save to Care Plan"
+                android:textColor="#FFFFFF"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:backgroundTint="#087F68"
+                android:layout_marginTop="16dp" />
+
+        </LinearLayout>
+    </LinearLayout>
+</FrameLayout>

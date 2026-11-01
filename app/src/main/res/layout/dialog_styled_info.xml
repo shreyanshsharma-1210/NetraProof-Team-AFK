@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    dialog_styled_info.xml
+    Custom styled dialog/alert used app-wide to replace raw AlertDialog.Builder.
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_card_white"
+    android:elevation="12dp"
+    android:padding="24dp">
+
+    <!-- Optional icon at top -->
+    <FrameLayout
+        android:id="@+id/dialogIconContainer"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/bg_med_summary_scheduled"
+        android:visibility="gone">
+
+        <ImageView
+            android:id="@+id/dialogIcon"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_nav_medication"
+            app:tint="#087F68" />
+
+    </FrameLayout>
+
+    <!-- Title -->
+    <TextView
+        android:id="@+id/dialogTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dialog Title"
+        android:textColor="#0D2140"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:layout_marginTop="16dp"
+        android:lineSpacingExtra="2dp" />
+
+    <!-- Divider -->
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#EEF2F5"
+        android:layout_marginTop="12dp"
+        android:layout_marginBottom="12dp" />
+
+    <!-- Body text -->
+    <TextView
+        android:id="@+id/dialogMessage"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Dialog message body."
+        android:textColor="#4A5568"
+        android:textSize="14sp"
+        android:lineSpacingExtra="4dp" />
+
+    <!-- Action buttons row -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="end"
+        android:layout_marginTop="20dp">
+
+        <!-- Secondary / Dismiss -->
+        <TextView
+            android:id="@+id/dialogBtnNegative"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:text="Close"
+            android:textColor="#687790"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone" />
+
+        <!-- Primary action -->
+        <TextView
+            android:id="@+id/dialogBtnPositive"
+            android:layout_width="wrap_content"
+            android:layout_height="44dp"
+            android:text="Understood"
+            android:textColor="#FFFFFF"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:background="@drawable/bg_status_chip_taken"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginStart="8dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:background="@drawable/bg_lesion_layer_card"
+    android:padding="14dp"
+    android:layout_marginBottom="10dp">
+
+    <!-- Top Row: Indicator dot, Category Title, Code Badge, Switch -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Category Color Dot Indicator -->
+        <View
+            android:id="@+id/viewCategoryDot"
+            android:layout_width="14dp"
+            android:layout_height="14dp"
+            android:background="@drawable/bg_lesion_indicator_cws"
+            android:layout_marginEnd="10dp" />
+
+        <!-- Title & Status Column -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvCategoryTitle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Cotton Wool Spots"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="14.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/badgeCategoryCode"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="CWS"
+                    android:textColor="@color/lesion_cotton_wool"
+                    android:background="@drawable/bg_pill_status_teal"
+                    android:textSize="10sp"
+                    android:textStyle="bold"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvCategoryStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Status: Pending Deployment"
+                android:textColor="@color/netra_text_secondary"
+                android:textSize="11.5sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <!-- Visibility Toggle Switch -->
+        <com.google.android.material.switchmaterial.SwitchMaterial
+            android:id="@+id/switchLayerVisibility"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            app:useMaterialThemeColors="true" />
+    </LinearLayout>
+
+    <!-- Middle Row: Educational Description -->
+    <TextView
+        android:id="@+id/tvCategoryDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Cotton wool spots are retinal findings associated with localized areas of retinal nerve fiber layer changes."
+        android:textColor="@color/netra_text_secondary"
+        android:textSize="12sp"
+        android:lineSpacingExtra="2dp"
+        android:layout_marginTop="8dp" />
+
+    <!-- Bottom Row: Metadata details (pixel area & regions) & Inspect button -->
+    <LinearLayout
+        android:id="@+id/layoutLayerMeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginTop="10dp"
+        android:paddingTop="8dp"
+        android:background="?android:attr/selectableItemBackground">
+
+        <TextView
+            android:id="@+id/tvLayerMetrics"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Coverage: Not available"
+            android:textColor="@color/netra_deep_navy"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/btnInspectLayer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inspect Mask →"
+            android:textColor="@color/netra_primary_teal"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            android:paddingStart="8dp"
+            android:paddingEnd="4dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
+    </LinearLayout>
+
+</LinearLayout>
+

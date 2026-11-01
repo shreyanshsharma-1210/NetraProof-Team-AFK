@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@color/color_surface"
+        android:paddingStart="12dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:elevation="3dp">
+
+        <ImageButton
+            android:id="@+id/btn_back"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="?android:attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_chevron_left"
+            android:padding="8dp"
+            app:tint="@color/color_text_primary"
+            android:contentDescription="Back" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Health Assistant ✨"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@color/color_text_primary" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Powered by Groq LLaMA 3.3 &amp; EHR Context"
+                android:textSize="11.5sp"
+                android:textColor="@color/color_text_secondary" />
+        </LinearLayout>
+
+        <FrameLayout
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@drawable/bg_pill_status_normal">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_sparkle_teal"
+                app:tint="#087F68" />
+        </FrameLayout>
+
+    </LinearLayout>
+
+    <!-- Chat Messages -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_chat"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/input_area"
+        android:layout_below="@id/header"
+        android:clipToPadding="false"
+        android:padding="16dp" />
+
+    <!-- Input Area -->
+    <LinearLayout
+        android:id="@+id/input_area"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_surface"
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:elevation="4dp"
+        android:gravity="center_vertical">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/bg_condition_chip"
+            android:orientation="horizontal"
+            android:layout_marginEnd="8dp">
+
+            <EditText
+                android:id="@+id/et_message"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Ask about your health records..."
+                android:background="@android:color/transparent"
+                android:padding="12dp"
+                android:textSize="16sp"
+                android:textColor="@color/color_text_primary"
+                android:textColorHint="@color/color_text_secondary"/>
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_send"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_call_button"
+            android:src="@android:drawable/ic_menu_send"
+            app:tint="@android:color/white"
+            android:padding="8dp"
+            android:scaleType="centerInside"/>
+    </LinearLayout>
+
+    <!-- Loading Overlay -->
+    <ProgressBar
+        android:id="@+id/progress_loading"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateTint="@color/color_primary_orange"/>
+
+</RelativeLayout>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_main.xml — NetraProof Floating Navigation Bar & Center Animated AI Assistant
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/netra_bg">
+
+    <!-- Fragment Container -->
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- ═══════════════════════════════════════════════════
+         FLOATING BOTTOM NAVIGATION PILL CONTAINER
+         ═══════════════════════════════════════════════════ -->
+    <FrameLayout
+        android:id="@+id/floatingNavbarContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:paddingStart="14dp"
+        android:paddingEnd="14dp"
+        android:paddingBottom="12dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
+
+        <!-- Floating Pill Background Bar -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:layout_gravity="bottom"
+            android:background="@drawable/bg_floating_navbar"
+            android:elevation="12dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp">
+
+            <!-- 1. Home -->
+            <LinearLayout
+                android:id="@+id/navTabHome"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/ivNavHome"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_nav_home"
+                    app:tint="@color/netra_primary_teal" />
+
+                <TextView
+                    android:id="@+id/tvNavHome"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Home"
+                    android:textColor="@color/netra_primary_teal"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <!-- 2. Retina / Screening -->
+            <LinearLayout
+                android:id="@+id/navTabMedication"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/ivNavMedication"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_action_retina"
+                    app:tint="#687790" />
+
+                <TextView
+                    android:id="@+id/tvNavMedication"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Retina"
+                    android:textColor="#687790"
+                    android:textSize="10.5sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <!-- Center Spacer for Floating Netra AI Button -->
+            <View
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.2" />
+
+            <!-- 3. Reports / Diabetes360 -->
+            <LinearLayout
+                android:id="@+id/navTabMedicalId"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/ivNavMedicalId"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_nav_medical_id"
+                    app:tint="#687790" />
+
+                <TextView
+                    android:id="@+id/tvNavMedicalId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reports"
+                    android:textColor="#687790"
+                    android:textSize="10.5sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+            <!-- 4. Profile -->
+            <LinearLayout
+                android:id="@+id/navTabProfile"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:id="@+id/ivNavProfile"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_nav_profile"
+                    app:tint="#687790" />
+
+                <TextView
+                    android:id="@+id/tvNavProfile"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diabetes360"
+                    android:textColor="#687790"
+                    android:textSize="10.5sp"
+                    android:layout_marginTop="2dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- ═══════════════════════════════════════════════════
+             CENTER ANIMATED NETRA AI ASSISTANT BUTTON
+             ═══════════════════════════════════════════════════ -->
+        <FrameLayout
+            android:id="@+id/btnFloatingAi"
+            android:layout_width="58dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/bg_floating_ai_fab"
+            android:elevation="16dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/ivFloatingAiIcon"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_sparkle_teal"
+                app:tint="#FFFFFF" />
+
+        </FrameLayout>
+
+    </FrameLayout>
+
+    <!-- Invisible BottomNavigationView for backwards compatibility -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:menu="@menu/bottom_nav_menu" />
+
+</FrameLayout>
+

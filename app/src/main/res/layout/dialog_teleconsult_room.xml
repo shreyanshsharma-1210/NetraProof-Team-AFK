@@ -1,0 +1,358 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_netra_card"
+    android:orientation="vertical"
+    android:padding="20dp">
+
+    <!-- Header: Pre-call summary -->
+    <LinearLayout
+        android:id="@+id/layoutPreCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <FrameLayout
+                android:layout_width="48dp"
+                android:layout_height="48dp">
+
+                <View
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:background="@drawable/bg_doctor_avatar" />
+
+                <TextView
+                    android:id="@+id/tvModalDoctorInitials"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:textColor="#FFFFFF"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="AS" />
+
+                <View
+                    android:layout_width="12dp"
+                    android:layout_height="12dp"
+                    android:layout_gravity="bottom|end"
+                    android:background="@drawable/bg_online_dot" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvModalDoctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    tools:text="Dr. Arvind Shrivastava" />
+
+                <TextView
+                    android:id="@+id/tvModalDoctorSpecialty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/netra_primary_teal"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    tools:text="Senior Vitreo-Retinal Surgeon" />
+
+                <TextView
+                    android:id="@+id/tvModalHospital"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11.5sp"
+                    tools:text="Netra Eye Centre • Navlakha" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:layout_marginBottom="14dp"
+            android:background="#EDF2F7" />
+
+        <!-- Security / Protocol Note -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_diabetic_badge"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:padding="10dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🔒"
+                android:textSize="14sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:text="HIPAA-grade 256-bit Encrypted Teleconsultation. Doctor is authenticated &amp; online."
+                android:textColor="@color/netra_deep_navy"
+                android:textSize="11.5sp" />
+
+        </LinearLayout>
+
+        <!-- Share Retinal Report Checkbox -->
+        <CheckBox
+            android:id="@+id/cbShareReport"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:buttonTint="@color/netra_primary_teal"
+            android:checked="true"
+            android:text="Attach latest NetraProof Retinal AI Screening Report (NP-SCR-00005) &amp; Glucose Log"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp" />
+
+        <!-- Consultation Fee Summary -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Consultation Fee"
+                android:textColor="@color/netra_text_secondary"
+                android:textSize="13sp" />
+
+            <TextView
+                android:id="@+id/tvModalFee"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/netra_text_primary"
+                android:textSize="15sp"
+                android:textStyle="bold"
+                tools:text="₹700" />
+
+        </LinearLayout>
+
+        <!-- Start Video Call Button -->
+        <LinearLayout
+            android:id="@+id/btnStartCall"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="18dp"
+            android:background="@drawable/bg_netra_btn_primary"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_video_call" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Connect Video Call Now"
+                android:textColor="#FFFFFF"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- ══════════════════════════════════════════════════════════
+         ACTIVE CALL STATE (Hidden until call starts)
+         ══════════════════════════════════════════════════════════ -->
+    <LinearLayout
+        android:id="@+id/layoutActiveCall"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <!-- Call Status Pill -->
+        <TextView
+            android:id="@+id/tvCallStatusPill"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_chip_selected"
+            android:paddingStart="12dp"
+            android:paddingTop="4dp"
+            android:paddingEnd="12dp"
+            android:paddingBottom="4dp"
+            android:text="Connecting securely..."
+            android:textColor="#FFFFFF"
+            android:textSize="11.5sp"
+            android:textStyle="bold" />
+
+        <!-- Doctor Video Frame -->
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_marginTop="14dp"
+            android:background="#0D242E">
+
+            <!-- Video Simulation / Doctor Avatar -->
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <FrameLayout
+                    android:layout_width="72dp"
+                    android:layout_height="72dp">
+
+                    <View
+                        android:layout_width="72dp"
+                        android:layout_height="72dp"
+                        android:background="@drawable/bg_doctor_avatar" />
+
+                    <TextView
+                        android:id="@+id/tvActiveDoctorInitials"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="#FFFFFF"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        tools:text="AS" />
+
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvActiveDoctorName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:textColor="#FFFFFF"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    tools:text="Dr. Arvind Shrivastava" />
+
+                <TextView
+                    android:id="@+id/tvCallTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:text="00:00"
+                    android:textColor="#80E5E0"
+                    android:textSize="13sp" />
+
+            </LinearLayout>
+
+            <!-- Self Camera PiP in corner -->
+            <FrameLayout
+                android:layout_width="70dp"
+                android:layout_height="95dp"
+                android:layout_gravity="bottom|end"
+                android:layout_margin="10dp"
+                android:background="#203A43">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="You"
+                    android:textColor="#A0B0B8"
+                    android:textSize="11sp" />
+
+            </FrameLayout>
+
+        </FrameLayout>
+
+        <!-- Call Control Buttons -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <!-- Mute Button -->
+            <FrameLayout
+                android:id="@+id/btnMute"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_btn_secondary_outline">
+
+                <TextView
+                    android:id="@+id/tvMuteIcon"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="🎙️"
+                    android:textSize="18sp" />
+
+            </FrameLayout>
+
+            <!-- End Call Button (Red Circle) -->
+            <FrameLayout
+                android:id="@+id/btnEndCall"
+                android:layout_width="56dp"
+                android:layout_height="56dp"
+                android:layout_marginStart="24dp"
+                android:layout_marginEnd="24dp"
+                android:background="@drawable/ripple_orange_card">
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_phone_dial"
+                    app:tint="#FFFFFF" />
+
+            </FrameLayout>
+
+            <!-- Toggle Video Button -->
+            <FrameLayout
+                android:id="@+id/btnToggleVideo"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:background="@drawable/bg_btn_secondary_outline">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="📹"
+                    android:textSize="18sp" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</LinearLayout>
+

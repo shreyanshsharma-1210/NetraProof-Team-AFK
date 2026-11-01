@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    dialog_environment_detector.xml — Multi-step progressive GPS Environment Telemetry Dialog
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center"
+    android:layout_margin="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bg_card_white"
+        android:orientation="vertical"
+        android:padding="20dp"
+        android:elevation="10dp">
+
+        <!-- Header -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:src="@drawable/ic_action_location"
+                app:tint="#087F68" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text=" Live Environment Sensor"
+                android:textColor="#0D2140"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_marginStart="8dp" />
+
+            <ProgressBar
+                android:id="@+id/pbEnvProgress"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:indeterminateTint="#087F68" />
+        </LinearLayout>
+
+        <!-- Status Log / Detection Stage -->
+        <TextView
+            android:id="@+id/tvEnvStatusStage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📡 Initializing GPS Satellites..."
+            android:textColor="#087F68"
+            android:textSize="12.5sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <!-- Progress Step Indicator Text -->
+        <TextView
+            android:id="@+id/tvEnvSubLog"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Triangulating coordinates &amp; local meteorological Doppler radar..."
+            android:textColor="#687790"
+            android:textSize="11sp"
+            android:layout_marginTop="2dp" />
+
+        <!-- Results Grid Container (Initially Hidden until telemetry loaded) -->
+        <LinearLayout
+            android:id="@+id/llEnvResultsGrid"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone"
+            android:layout_marginTop="14dp">
+
+            <!-- Location Badge -->
+            <TextView
+                android:id="@+id/tvDetectedLocation"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="📍 Mhow, Indore, Madhya Pradesh"
+                android:textColor="#087F68"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_med_summary_scheduled"
+                android:padding="8dp" />
+
+            <!-- 2x2 Telemetry Cards -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="10dp">
+
+                <!-- Temp & Rain -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_metric_card"
+                    android:orientation="vertical"
+                    android:padding="10dp"
+                    android:layout_marginEnd="6dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🌧️ 24°C • Heavy Rain"
+                        android:textColor="#0D2140"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Rainfall: 42 mm/hr"
+                        android:textColor="#687790"
+                        android:textSize="10sp"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <!-- Humidity & Vector -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_metric_card"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="💧 88% Humidity"
+                        android:textColor="#0D2140"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Dengue Vector: HIGH"
+                        android:textColor="#DC2626"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Air Quality: 42 AQI (Good - Rain Cleaned) • UV: 2 (Low) • Persisted to Room DB"
+                android:textColor="#087F68"
+                android:textSize="10.5sp"
+                android:layout_marginTop="10dp" />
+
+        </LinearLayout>
+
+        <!-- Close / Action Button -->
+        <Button
+            android:id="@+id/btnEnvClose"
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:text="Close Telemetry"
+            android:textColor="#FFFFFF"
+            android:textSize="12.5sp"
+            android:textStyle="bold"
+            android:backgroundTint="#087F68"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</FrameLayout>

@@ -1,0 +1,157 @@
+<resources>
+    <string name="app_name">NetraProof</string>
+    <string name="brand_name">NetraProof</string>
+    <string name="brand_tagline">From Retinal Intelligence to Comprehensive Diabetes Health Management</string>
+    <string name="brand_positioning">AI-Powered Diabetes Screening &amp; Whole-Body Health Companion</string>
+
+    <!-- Navigation Strings -->
+    <string name="nav_home">Home</string>
+    <string name="nav_retina">Retina</string>
+    <string name="nav_diabetes360">Diabetes360</string>
+    <string name="nav_reports">Reports</string>
+    <string name="nav_profile">Profile</string>
+    <string name="nav_ask_ai">Ask Netra AI</string>
+
+    <!-- Home Header & Search -->
+    <string name="header_greeting_morning">Good morning,</string>
+    <string name="header_greeting_afternoon">Good afternoon,</string>
+    <string name="header_greeting_evening">Good evening,</string>
+    <string name="search_placeholder">Search your health records, reports and insights…</string>
+
+    <!-- Retina Intelligence Hero -->
+    <string name="retina_hero_eyebrow">RETINA INTELLIGENCE</string>
+    <string name="retina_hero_headline">See beyond the surface.</string>
+    <string name="retina_hero_desc">AI-assisted retinal screening with disease grading, lesion visualization and explainable insights.</string>
+    <string name="retina_feat_quality">Image Quality Assessment</string>
+    <string name="retina_feat_grading">DR Severity Grading</string>
+    <string name="retina_feat_segmentation">Lesion Segmentation</string>
+    <string name="retina_cta_start">Start Retinal Screening</string>
+    <string name="retina_cta_history">View Previous Screenings</string>
+    <string name="retina_disclaimer">NetraProof AI screening is an assistive triage tool and does not replace a comprehensive clinical examination by an ophthalmologist.</string>
+
+    <!-- Diabetes360 Overview -->
+    <string name="diabetes360_title">Your Diabetes360 Overview</string>
+    <string name="diabetes360_desc">Stay informed about your health measurements and screening history.</string>
+    <string name="metric_glucose_title">Glucose Monitoring</string>
+    <string name="metric_glucose_sub">Fasting / Postprandial</string>
+    <string name="metric_heart_title">Heart Health</string>
+    <string name="metric_heart_sub">Blood Pressure &amp; Rhythm</string>
+    <string name="metric_hba1c_title">HbA1c Tracking</string>
+    <string name="metric_hba1c_sub">3-Month Glycemic Control</string>
+    <string name="metric_kidney_title">Kidney Health</string>
+    <string name="metric_kidney_sub">eGFR &amp; UACR Renal Panel</string>
+    <string name="no_records_yet">No records yet</string>
+    <string name="action_add_record">+ Add Record</string>
+    <string name="action_upload_report">+ Upload Report</string>
+
+    <!-- Health Quick Actions -->
+    <string name="quick_actions_title">Health Quick Actions</string>
+    <string name="quick_action_start_screening">Start Screening</string>
+    <string name="quick_action_upload_report">Upload Report</string>
+    <string name="quick_action_log_glucose">Log Glucose</string>
+    <string name="quick_action_health_passport">Health Passport</string>
+
+    <!-- Recent Activity & Reminders -->
+    <string name="recent_activity_title">Recent Health Activity</string>
+    <string name="no_recent_activity">No recent activities recorded yet.</string>
+    <string name="upcoming_reminders_title">Upcoming Reminders</string>
+    <string name="no_upcoming_reminders">No pending reminders for today.</string>
+
+    <!-- Health Insights & Netra AI -->
+    <string name="health_insights_title">Your Health Insights</string>
+    <string name="doctor_connect_title">Stay Connected With Your Doctor</string>
+    <string name="doctor_connect_desc">Share your screening reports and health records with an authorized healthcare professional.</string>
+    <string name="doctor_connect_cta">Connect With Doctor</string>
+    <string name="emergency_assistance_title">Emergency Assistance</string>
+
+    <!-- Preserved Lock Screen -->
+    <string name="tap_in_emergency">TAP IN EMERGENCY</string>
+    <string name="sending_emergency_in">Sending emergency in</string>
+    <string name="seconds">seconds</string>
+    <string name="cancel">CANCEL</string>
+
+    <!-- Preserved Emergency Service -->
+    <string name="emergency_service_active">Emergency service active — tap to open app</string>
+    <string name="emergency_service_channel_name">Emergency Service</string>
+    <string name="emergency_service_channel_desc">Keeps the emergency response service running</string>
+
+    <!-- Preserved Emergency Active Dashboard -->
+    <string name="emergency_activated">Emergency Activated — Notifying Family</string>
+    <string name="sos_still_active">SOS still active. Tap CANCEL SOS to stop.</string>
+    <string name="cancel_sos">CANCEL SOS</string>
+    <string name="call_police">102 POLICE</string>
+    <string name="show_qr_code">SHOW QR CODE</string>
+    <string name="call_relatives">CALL RELATIVES</string>
+    <string name="call_all">CALL ALL →</string>
+    <string name="doctor_access_only">🔒 Doctor Access Only</string>
+    <string name="live_status_feed">Live Status Feed</string>
+    <string name="cancel_emergency_title">Cancel Emergency?</string>
+    <string name="cancel_emergency_message">Are you sure you want to cancel the emergency?</string>
+    <string name="yes_cancel">Yes, Cancel</string>
+    <string name="keep_active">Keep Active</string>
+    <string name="for_medical_staff">For Medical Staff Only</string>
+
+    <!-- Preserved Medical ID Screen -->
+    <string name="medical_id_title">Medical ID</string>
+    <string name="edit">Edit</string>
+    <string name="emergency_qr_code">Emergency QR Code</string>
+    <string name="scan_for_profile">Scan for Full Medical Profile</string>
+    <string name="years_old">%d years old</string>
+
+    <!-- Preserved Document Upload -->
+    <string name="upload_document_title">Upload Document</string>
+    <string name="add_document">+ Add Document</string>
+    <string name="upload_analyse">Upload &amp; Analyse</string>
+    <string name="uploading">Uploading…</string>
+    <string name="processing_ai">Processing by AI…</string>
+    <string name="ai_processing_note">AI extraction may take 10–30 seconds</string>
+    <string name="tap_to_choose">Tap to choose a document</string>
+    <string name="supported_formats">PDF, JPEG, or PNG</string>
+    <string name="ready_to_upload">Ready to upload</string>
+    <string name="try_again">Try Again</string>
+
+    <!-- Preserved Validation Screen -->
+    <string name="review_extracted_data">Review Extracted Data</string>
+    <string name="ai_warning">Review each field carefully. AI can make mistakes. Tap Approve only when correct.</string>
+    <string name="extracted_medical_data">Extracted Medical Data</string>
+    <string name="approve_and_save">Approve &amp; Save</string>
+    <string name="discard">Discard</string>
+    <string name="approve_disclaimer">Approving commits this data to your medical profile.</string>
+    <string name="profile_updated">Medical profile updated ✅</string>
+    <string name="extraction_discarded">Extraction discarded.</string>
+
+    <!-- Preserved Onboarding -->
+    <string name="onboarding_title_1">Tell us about you</string>
+    <string name="onboarding_title_2">Emergency Contact</string>
+    <string name="onboarding_title_3">Medical Conditions</string>
+    <string name="next">Next</string>
+    <string name="register">Register</string>
+
+    <!-- Preserved General -->
+    <string name="from_label">From: %s</string>
+    <string name="sent_via">Sent via: %s</string>
+    <string name="network_error">Network error: %s</string>
+
+    <!-- Preserved Medication OCR -->
+    <string name="ocr_title">Medication Details</string>
+    <string name="ocr_scanning">Analysing label…</string>
+    <string name="ocr_scanning_note">Please keep the app open while we read the text.</string>
+    <string name="ocr_review_warning">Please review the extracted data. Automated text recognition can sometimes make mistakes.</string>
+    <string name="ocr_extracted_fields">EXTRACTED MEDICATION DATA</string>
+    <string name="ocr_field_drug_name">Drug / Product Name</string>
+    <string name="ocr_hint_drug_name">e.g. Paracetamol</string>
+    <string name="ocr_field_dosage">Dosage / Strength</string>
+    <string name="ocr_hint_dosage">e.g. 500 mg</string>
+    <string name="ocr_field_expiry">Expiry Date</string>
+    <string name="ocr_hint_expiry">e.g. 06/2026</string>
+    <string name="ocr_raw_text_toggle">View Raw Extracted Text</string>
+    <string name="ocr_raw_text_hide">Hide Raw Extracted Text</string>
+    <string name="ocr_approve_disclaimer">Approving saves this medication locally on your device for emergency references.</string>
+    <string name="ocr_error_generic">Could not read the label.</string>
+    <string name="ocr_approve_save">Approve &amp; Save</string>
+
+    <!-- Preserved Chat Feature -->
+    <string name="chat_title">Chat</string>
+    <string name="chat_placeholder">Type a message...</string>
+
+</resources>

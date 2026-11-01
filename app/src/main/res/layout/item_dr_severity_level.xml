@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cardSeverityItem"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_dr_grade_card_unselected"
+    android:orientation="vertical"
+    android:padding="14dp"
+    android:layout_marginBottom="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <!-- Grade Number Chip -->
+        <TextView
+            android:id="@+id/tvSeverityGradeBadge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_pill_status_not_assessed"
+            android:text="Grade 0"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="11sp"
+            android:textStyle="bold" />
+
+        <!-- Category Title -->
+        <TextView
+            android:id="@+id/tvSeverityCategoryTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="10dp"
+            android:text="No Apparent DR"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold" />
+
+        <!-- Predicted Indicator Pill (Visible only on the predicted tier) -->
+        <LinearLayout
+            android:id="@+id/badgePredictedIndicator"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bg_netra_btn_primary"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:gravity="center_vertical"
+            android:visibility="gone">
+
+            <ImageView
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:src="@drawable/ic_check_circle"
+                app:tint="#FFFFFF" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:text="AI PREDICTED"
+                android:textColor="#FFFFFF"
+                android:textSize="9.5sp"
+                android:textStyle="bold"
+                android:letterSpacing="0.04" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <!-- Technical Summary -->
+    <TextView
+        android:id="@+id/tvSeveritySummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="No visible microvascular lesions or hallmark DR features identified."
+        android:textColor="@color/netra_text_secondary"
+        android:textSize="11.5sp"
+        android:lineSpacingExtra="2dp"
+        android:layout_marginTop="6dp" />
+</LinearLayout>
+

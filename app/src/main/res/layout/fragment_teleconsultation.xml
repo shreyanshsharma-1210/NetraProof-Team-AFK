@@ -1,0 +1,489 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/netra_bg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <!-- ══════════════════════════════════════════════════════════
+             HEADER BAR: Back Navigation + Title + Branding
+             ══════════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/netra_card_surface"
+            android:elevation="2dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="8dp"
+            android:paddingTop="8dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="8dp">
+
+            <!-- Back Button -->
+            <FrameLayout
+                android:id="@+id/btnBack"
+                android:layout_width="44dp"
+                android:layout_height="44dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:layout_gravity="center"
+                    android:src="@android:drawable/ic_menu_revert"
+                    app:tint="@color/netra_text_primary" />
+
+            </FrameLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Diabetic Specialist Connect"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Retina • Endocrinology • Nephrology • Foot Care"
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11sp" />
+
+            </LinearLayout>
+
+            <!-- Refresh Location Icon / Action -->
+            <FrameLayout
+                android:id="@+id/btnRefreshLocation"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:background="@drawable/bg_btn_secondary_outline"
+                android:clickable="true"
+                android:focusable="true">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:layout_gravity="center"
+                    android:src="@drawable/ic_action_location" />
+
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <!-- ══════════════════════════════════════════════════════════
+             LOCATION BAR: Current City & Locality + Change City
+             ══════════════════════════════════════════════════════════ -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#E8F4F5"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="16dp"
+            android:paddingTop="9dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="9dp">
+
+            <ImageView
+                android:layout_width="16dp"
+                android:layout_height="16dp"
+                android:src="@drawable/ic_action_location"
+                app:tint="@color/netra_primary_teal" />
+
+            <TextView
+                android:id="@+id/tvCurrentLocation"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_weight="1"
+                android:ellipsize="end"
+                android:maxLines="1"
+                android:text="📍 Indore, Madhya Pradesh (Near You)"
+                android:textColor="@color/netra_deep_navy"
+                android:textSize="12.5sp"
+                android:textStyle="bold" />
+
+            <!-- Change City Button -->
+            <TextView
+                android:id="@+id/btnChangeCity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_chip_unselected"
+                android:clickable="true"
+                android:focusable="true"
+                android:paddingStart="10dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="4dp"
+                android:text="Change City ▾"
+                android:textColor="@color/netra_primary_teal"
+                android:textSize="11.5sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Nested Content in NestedScrollView -->
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:paddingBottom="40dp">
+
+                <!-- ══════════════════════════════════════════════════════════
+                     CLINICAL CONTEXT BANNER: AI Retinopathy Link
+                     ══════════════════════════════════════════════════════════ -->
+                <LinearLayout
+                    android:id="@+id/cardClinicalAlert"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_diabetic_badge"
+                    android:orientation="vertical"
+                    android:padding="12dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="👁️"
+                            android:textSize="16sp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:text="Clinical Screening Insight: NPDR Detected"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/btnQuickRetinaFilter"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_chip_selected"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingStart="10dp"
+                            android:paddingTop="4dp"
+                            android:paddingEnd="10dp"
+                            android:paddingBottom="4dp"
+                            android:text="View Retina Specialists"
+                            android:textColor="#FFFFFF"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:text="Vitreo-Retinal evaluation is recommended to inspect microaneurysms and prevent diabetic macular edema."
+                        android:textColor="@color/netra_text_secondary"
+                        android:textSize="11.5sp" />
+
+                </LinearLayout>
+
+                <!-- ══════════════════════════════════════════════════════════
+                     SEARCH BAR
+                     ══════════════════════════════════════════════════════════ -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginEnd="16dp"
+                    android:background="@drawable/bg_netra_search"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="12dp">
+
+                    <ImageView
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:src="@drawable/ic_search_lens" />
+
+                    <EditText
+                        android:id="@+id/etSearchDoctors"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
+                        android:background="@null"
+                        android:hint="Search doctor, clinic, retina, kidney, foot..."
+                        android:imeOptions="actionSearch"
+                        android:inputType="text"
+                        android:textColor="@color/netra_text_primary"
+                        android:textColorHint="@color/netra_text_secondary"
+                        android:textSize="13sp" />
+
+                    <ImageView
+                        android:id="@+id/btnClearSearch"
+                        android:layout_width="18dp"
+                        android:layout_height="18dp"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:src="@android:drawable/ic_menu_close_clear_cancel"
+                        android:visibility="gone"
+                        app:tint="@color/netra_text_secondary" />
+
+                </LinearLayout>
+
+                <!-- ══════════════════════════════════════════════════════════
+                     SPECIALTY FILTER CHIPS (Horizontal Scroll)
+                     ══════════════════════════════════════════════════════════ -->
+                <HorizontalScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:clipToPadding="false"
+                    android:paddingStart="16dp"
+                    android:paddingEnd="16dp"
+                    android:scrollbars="none">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <!-- All Diabetic Care -->
+                        <TextView
+                            android:id="@+id/chipAll"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/bg_chip_selected"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingStart="14dp"
+                            android:paddingTop="7dp"
+                            android:paddingEnd="14dp"
+                            android:paddingBottom="7dp"
+                            android:text="⭐ All Diabetic Care"
+                            android:textColor="#FFFFFF"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <!-- Retina & Eye -->
+                        <TextView
+                            android:id="@+id/chipRetina"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_chip_unselected"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingStart="14dp"
+                            android:paddingTop="7dp"
+                            android:paddingEnd="14dp"
+                            android:paddingBottom="7dp"
+                            android:text="👁️ Retina &amp; Eye (DR/DME)"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp" />
+
+                        <!-- Diabetology & Endocrine -->
+                        <TextView
+                            android:id="@+id/chipDiabetology"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_chip_unselected"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingStart="14dp"
+                            android:paddingTop="7dp"
+                            android:paddingEnd="14dp"
+                            android:paddingBottom="7dp"
+                            android:text="🩺 Diabetology &amp; Endocrine"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp" />
+
+                        <!-- Kidney & Nephrology -->
+                        <TextView
+                            android:id="@+id/chipNephrology"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_chip_unselected"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingStart="14dp"
+                            android:paddingTop="7dp"
+                            android:paddingEnd="14dp"
+                            android:paddingBottom="7dp"
+                            android:text="🔬 Kidney &amp; Renal"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp" />
+
+                        <!-- Foot & Wound -->
+                        <TextView
+                            android:id="@+id/chipPodiatry"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_chip_unselected"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingStart="14dp"
+                            android:paddingTop="7dp"
+                            android:paddingEnd="14dp"
+                            android:paddingBottom="7dp"
+                            android:text="🦶 Foot &amp; Ulcer Care"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp" />
+
+                        <!-- Nutrition & Diet -->
+                        <TextView
+                            android:id="@+id/chipNutrition"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:background="@drawable/bg_chip_unselected"
+                            android:clickable="true"
+                            android:focusable="true"
+                            android:paddingStart="14dp"
+                            android:paddingTop="7dp"
+                            android:paddingEnd="14dp"
+                            android:paddingBottom="7dp"
+                            android:text="🥗 Diabetes Nutrition"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                </HorizontalScrollView>
+
+                <!-- ══════════════════════════════════════════════════════════
+                     RESULTS SUMMARY & SORT
+                     ══════════════════════════════════════════════════════════ -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="14dp"
+                    android:layout_marginEnd="16dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tvResultsCount"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Showing 6 diabetic specialists"
+                        android:textColor="@color/netra_text_secondary"
+                        android:textSize="12.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="⚡ Sorted by Nearest"
+                        android:textColor="@color/netra_primary_teal"
+                        android:textSize="11.5sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+                <!-- ══════════════════════════════════════════════════════════
+                     DOCTOR LIST RECYCLERVIEW
+                     ══════════════════════════════════════════════════════════ -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvDiabeticDoctors"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:nestedScrollingEnabled="false" />
+
+                <!-- Empty State -->
+                <LinearLayout
+                    android:id="@+id/layoutEmptyState"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:padding="36dp"
+                    android:visibility="gone">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🩺"
+                        android:textSize="44sp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:text="No Specialists Found"
+                        android:textColor="@color/netra_text_primary"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:gravity="center"
+                        android:text="No diabetic specialists match your current filter in this city. Try choosing 'All Cities' or adjusting your search term."
+                        android:textColor="@color/netra_text_secondary"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/btnResetFilters"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="16dp"
+                        android:background="@drawable/bg_chip_selected"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:paddingStart="16dp"
+                        android:paddingTop="8dp"
+                        android:paddingEnd="16dp"
+                        android:paddingBottom="8dp"
+                        android:text="Reset Filters"
+                        android:textColor="#FFFFFF"
+                        android:textSize="12sp"
+                        android:textStyle="bold" />
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</FrameLayout>

@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    activity_step3_verify_resume.xml — NetraProof Onboarding Step 3: Verify & Generate Pass
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    android:background="@color/netra_bg">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:layout_marginBottom="16dp">
+
+        <ImageView
+            android:layout_width="145dp"
+            android:layout_height="36dp"
+            android:src="@drawable/app_header_logo"
+            android:scaleType="fitStart"
+            android:adjustViewBounds="true"
+            android:contentDescription="NetraProof Logo" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Step 3 / 3"
+            android:textColor="@color/netra_primary_teal"
+            android:textSize="11.5sp"
+            android:textStyle="bold"
+            android:background="@drawable/bg_netra_pill_teal"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp" />
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Authorize NetraProof Health Pass"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="@color/netra_deep_navy" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Your inputs will be synchronized to Room DB and embedded into your zero-unlock emergency QR pass."
+        android:textColor="@color/netra_text_secondary"
+        android:textSize="12sp"
+        android:layout_marginTop="2dp"
+        android:layout_marginBottom="16dp" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/bg_netra_card"
+            android:padding="16dp"
+            android:elevation="2dp"
+            android:layout_marginBottom="12dp">
+
+            <!-- Demographics -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="👤 Patient Demographics"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="@color/netra_primary_teal"
+                android:layout_marginBottom="6dp"/>
+            
+            <TextView
+                android:id="@+id/tv_verify_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/netra_deep_navy"
+                android:textSize="13sp"
+                android:textStyle="bold"
+                android:layout_marginBottom="2dp"/>
+            
+            <TextView
+                android:id="@+id/tv_verify_gender_dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/netra_text_secondary"
+                android:textSize="12sp"
+                android:layout_marginBottom="4dp"/>
+            
+            <TextView
+                android:id="@+id/tv_verify_blood"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FFFFFF"
+                android:textSize="11sp"
+                android:textStyle="bold"
+                android:background="@drawable/bg_pill_status_high"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:paddingTop="2dp"
+                android:paddingBottom="2dp"
+                android:layout_marginBottom="14dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/netra_border"
+                android:layout_marginBottom="14dp"/>
+
+            <!-- Medical History -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="🩺 Clinical Profile &amp; Allergies"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="@color/netra_primary_teal"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_verify_conditions"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/netra_deep_navy"
+                android:textSize="12sp"
+                android:lineSpacingExtra="2dp"
+                android:layout_marginBottom="14dp"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/netra_border"
+                android:layout_marginBottom="14dp"/>
+
+            <LinearLayout
+                android:id="@+id/layout_ocr_details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="💊 Scanned Medication Details"
+                    android:textStyle="bold"
+                    android:textSize="12sp"
+                    android:textColor="@color/netra_primary_teal"
+                    android:layout_marginBottom="6dp"/>
+
+                <TextView
+                    android:id="@+id/tv_ocr_name_verify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/netra_deep_navy"
+                    android:textSize="12sp"/>
+                
+                <TextView
+                    android:id="@+id/tv_ocr_dosage_verify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11.5sp"/>
+                
+                <TextView
+                    android:id="@+id/tv_ocr_expiry_verify"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11.5sp"
+                    android:layout_marginBottom="14dp"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/netra_border"
+                    android:layout_marginBottom="14dp"/>
+            </LinearLayout>
+
+            <!-- Emergency Contacts -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="📞 Emergency Contacts"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:textColor="@color/netra_primary_teal"
+                android:layout_marginBottom="6dp"/>
+
+            <TextView
+                android:id="@+id/tv_verify_contacts"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/netra_deep_navy"
+                android:textSize="12sp"
+                android:lineSpacingExtra="2dp"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btn_back_step3"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="1"
+            android:text="Back"
+            style="?android:attr/borderlessButtonStyle"
+            android:textColor="@color/netra_text_secondary"/>
+
+        <Button
+            android:id="@+id/btn_verify_create"
+            android:layout_width="0dp"
+            android:layout_height="50dp"
+            android:layout_weight="2"
+            android:text="Authorize &amp; Launch ❯"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="#FFFFFF"
+            android:backgroundTint="@color/netra_primary_teal"/>
+    </LinearLayout>
+
+</LinearLayout>

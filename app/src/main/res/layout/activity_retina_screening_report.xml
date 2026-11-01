@@ -1,0 +1,1246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/netra_bg">
+
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Top App Bar / Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="16dp"
+        android:paddingEnd="16dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:background="@color/netra_card_surface"
+        android:elevation="2dp">
+
+        <FrameLayout
+            android:id="@+id/btnBack"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:background="@drawable/bg_netra_search"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_back_arrow"
+                app:tint="@color/netra_text_primary" />
+        </FrameLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_netraproof_logo"
+                    android:layout_marginEnd="6dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="NetraProof"
+                    android:textColor="@color/netra_primary_teal"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:letterSpacing="0.04" />
+
+                <TextView
+                    android:id="@+id/tvSessionIdBadge"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="SESSION: NP-SCR-00001"
+                    android:textColor="@color/netra_deep_navy"
+                    android:background="@drawable/bg_netra_badge_navy"
+                    android:textSize="9.5sp"
+                    android:textStyle="bold"
+                    android:paddingStart="6dp"
+                    android:paddingEnd="6dp"
+                    android:paddingTop="2dp"
+                    android:paddingBottom="2dp"
+                    android:layout_marginStart="8dp" />
+            </LinearLayout>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AI Screening Report"
+                android:textColor="@color/netra_text_primary"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:layout_marginTop="1dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Your retinal screening summary"
+                android:textColor="@color/netra_text_secondary"
+                android:textSize="11.5sp" />
+        </LinearLayout>
+
+        <!-- Header Actions: Download PDF & Share -->
+        <FrameLayout
+            android:id="@+id/btnDownloadPdf"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_netra_search"
+            android:clickable="true"
+            android:focusable="true"
+            android:layout_marginEnd="6dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_download"
+                app:tint="@color/netra_primary_teal" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/btnShareReport"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_netra_search"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:layout_gravity="center"
+                android:src="@drawable/ic_share"
+                app:tint="@color/netra_primary_teal" />
+        </FrameLayout>
+
+        <!-- Patient Profile Avatar -->
+        <FrameLayout
+            android:id="@+id/btnProfileAvatar"
+            android:layout_width="38dp"
+            android:layout_height="38dp"
+            android:background="@drawable/bg_avatar_profile_mint"
+            android:layout_marginStart="8dp"
+            android:clickable="true"
+            android:focusable="true">
+
+            <TextView
+                android:id="@+id/tvAvatarInitials"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="NP"
+                android:textColor="@color/netra_deep_navy"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:clipToPadding="false"
+        android:paddingBottom="95dp"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="16dp"
+            android:paddingEnd="16dp"
+            android:paddingTop="14dp"
+            android:paddingBottom="24dp">
+
+            <!-- Report Status Banner Card -->
+            <LinearLayout
+                android:id="@+id/cardReportStatusBanner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_quality_card_passed"
+                android:padding="14dp"
+                android:gravity="center_vertical"
+                android:layout_marginBottom="14dp">
+
+                <ImageView
+                    android:id="@+id/ivReportStatusIcon"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_document_report"
+                    app:tint="@color/netra_primary_teal"
+                    android:layout_marginEnd="12dp" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@+id/tvReportStatusTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Partial Screening Report"
+                        android:textColor="@color/netra_text_primary"
+                        android:textSize="14.5sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tvReportStatusSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Optical quality verified. AI classification pending server deployment."
+                        android:textColor="@color/netra_text_secondary"
+                        android:textSize="11.5sp"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/badgeReportStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Partial"
+                    android:textColor="@color/netra_deep_navy"
+                    android:background="@drawable/bg_pill_status_not_assessed"
+                    android:textSize="10.5sp"
+                    android:textStyle="bold"
+                    android:paddingStart="8dp"
+                    android:paddingEnd="8dp"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp" />
+            </LinearLayout>
+
+            <!-- Section 1: Patient and Screening Information Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_lesion_layer_card"
+                android:padding="16dp"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Screening Information"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:background="@color/netra_border"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- Row 1: Patient Name & ID -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Patient Name"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvPatientName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Authenticated Patient"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="13sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Patient Reference"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvPatientDisplayId"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NP-001"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="13sp"
+                            android:fontFamily="monospace" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Row 2: Age/Gender & Blood Group -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="8dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Age / Gender"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvPatientDemographics"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="54 yrs • Female"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12.5sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Report ID"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvReportIdDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NP-RPT-20261031-00001"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp"
+                            android:fontFamily="monospace" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Row 3: Screening Date & Session ID -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Screening Date"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvScreeningDateTime"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="31 Oct 2026, 23:45 IST"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Session Reference"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvSessionIdDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="NP-SCR-00001"
+                            android:textColor="@color/netra_primary_teal"
+                            android:textSize="12sp"
+                            android:textStyle="bold"
+                            android:fontFamily="monospace" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Section 2: Executive Screening Summary Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_quality_card_passed"
+                android:padding="16dp"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Executive Screening Summary"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="14.5sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Consolidated status across the NetraProof screening pipeline"
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11.5sp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- Stage A: Quality -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/bg_mode_pill_unselected"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_stage_completed"
+                        android:layout_marginEnd="10dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Optical Quality Assessment"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12.5sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvQualityDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Resolution &amp; illumination passed quality gate"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/badgeQualityStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Passed"
+                        android:textColor="@color/netra_success"
+                        android:background="@drawable/bg_pill_status_good"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="6dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp" />
+                </LinearLayout>
+
+                <!-- Stage B: DR Severity -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/bg_mode_pill_unselected"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:id="@+id/ivDrStageIcon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_stage_in_progress"
+                        android:layout_marginEnd="10dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="DR Severity Grading"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12.5sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvDrDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Five-fold EfficientNet-B0 ensemble ordinal regression"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/badgeDrStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Service Pending"
+                        android:textColor="@color/netra_deep_navy"
+                        android:background="@drawable/bg_pill_status_not_assessed"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="6dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp" />
+                </LinearLayout>
+
+                <!-- Stage C: Lesion Segmentation -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:background="@drawable/bg_mode_pill_unselected">
+
+                    <ImageView
+                        android:id="@+id/ivLesionStageIcon"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_stage_in_progress"
+                        android:layout_marginEnd="10dp" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Retinal Lesion Segmentation"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12.5sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvLesionDetail"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="U-Net + SE-ResNeXt50 (4 lesion classes)"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/badgeLesionStatus"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Service Pending"
+                        android:textColor="@color/netra_deep_navy"
+                        android:background="@drawable/bg_pill_status_not_assessed"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="6dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Section 3: Original Retinal Image & Optical Quality Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_lesion_layer_card"
+                android:padding="16dp"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1. Retinal Image Quality"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Retinal Image Frame -->
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    android:background="#0A151C"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="8dp">
+
+                    <ImageView
+                        android:id="@+id/ivRetinaThumbnail"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="fitCenter"
+                        android:contentDescription="Screened retinal photograph" />
+                </FrameLayout>
+
+                <TextView
+                    android:id="@+id/tvImageCaption"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Image: fundus_retina.jpg • 2048 × 1536 px • Aspect ratio preserved"
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="10dp" />
+
+                <!-- Optical parameters row -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:background="@drawable/bg_mode_pill_unselected"
+                    android:padding="10dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Focus &amp; Sharpness"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="10.5sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Clear (Passed)"
+                            android:textColor="@color/netra_success"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Exposure &amp; Contrast"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="10.5sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Adequate"
+                            android:textColor="@color/netra_success"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Artifacts / Blur"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="10.5sp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="None Detected"
+                            android:textColor="@color/netra_success"
+                            android:textSize="11.5sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Section 4: Diabetic Retinopathy Severity Assessment Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_quality_card_pending"
+                android:padding="16dp"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2. Diabetic Retinopathy Severity Assessment"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <!-- Predicted Category Banner -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="8dp">
+
+                    <TextView
+                        android:id="@+id/tvPredictedTier"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Prediction Pending Deployment"
+                        android:textColor="@color/netra_text_primary"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/badgePredictedGrade"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Service Pending"
+                        android:textColor="@color/netra_deep_navy"
+                        android:background="@drawable/bg_pill_status_not_assessed"
+                        android:textSize="10.5sp"
+                        android:textStyle="bold"
+                        android:paddingStart="8dp"
+                        android:paddingEnd="8dp"
+                        android:paddingTop="3dp"
+                        android:paddingBottom="3dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Model: Five-fold EfficientNet-B0 Ensemble with Ordinal Regression"
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11sp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- 5-Tier Scale Overview -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginBottom="12dp">
+
+                    <TextView
+                        android:id="@+id/scaleTier0"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Grade 0\nNo DR"
+                        android:textColor="@color/netra_text_primary"
+                        android:textSize="9sp"
+                        android:background="@drawable/bg_mode_pill_unselected"
+                        android:layout_marginEnd="3dp" />
+
+                    <TextView
+                        android:id="@+id/scaleTier1"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Grade 1\nMild"
+                        android:textColor="@color/netra_text_primary"
+                        android:textSize="9sp"
+                        android:background="@drawable/bg_mode_pill_unselected"
+                        android:layout_marginEnd="3dp" />
+
+                    <TextView
+                        android:id="@+id/scaleTier2"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Grade 2\nModerate"
+                        android:textColor="@color/netra_text_primary"
+                        android:textSize="9sp"
+                        android:background="@drawable/bg_mode_pill_unselected"
+                        android:layout_marginEnd="3dp" />
+
+                    <TextView
+                        android:id="@+id/scaleTier3"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Grade 3\nSevere"
+                        android:textColor="@color/netra_text_primary"
+                        android:textSize="9sp"
+                        android:background="@drawable/bg_mode_pill_unselected"
+                        android:layout_marginEnd="3dp" />
+
+                    <TextView
+                        android:id="@+id/scaleTier4"
+                        android:layout_width="0dp"
+                        android:layout_height="32dp"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="Grade 4\nPDR"
+                        android:textColor="@color/netra_text_primary"
+                        android:textSize="9sp"
+                        android:background="@drawable/bg_mode_pill_unselected" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/tvDrExplanation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="The DR severity grading service is pending remote server deployment. In compliance with clinical protocols, synthetic diagnoses are never simulated."
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="12sp"
+                    android:lineSpacingExtra="2dp" />
+            </LinearLayout>
+
+            <!-- Section 5: Retinal Lesion Segmentation Card -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_lesion_layer_card"
+                android:padding="16dp"
+                android:layout_marginBottom="14dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="3. Retinal Lesion Segmentation"
+                        android:textColor="@color/netra_text_primary"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="U-Net + SE-ResNeXt50"
+                        android:textColor="@color/netra_primary_teal"
+                        android:background="@drawable/bg_pill_status_teal"
+                        android:textSize="10sp"
+                        android:textStyle="bold"
+                        android:paddingStart="6dp"
+                        android:paddingEnd="6dp"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="2dp" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Independent spatial segmentation across 4 lesion categories"
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11.5sp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="12dp" />
+
+                <!-- 4 Category Legend Rows -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:layout_marginBottom="12dp">
+
+                    <!-- CWS -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="6dp">
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:background="@drawable/bg_lesion_indicator_cws"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Cotton Wool Spots (CWS)"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvCwsStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Service Pending"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <!-- HEX -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="6dp">
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:background="@drawable/bg_lesion_indicator_hex"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Hard Exudates (HEX)"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvHexStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Service Pending"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <!-- HEM -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="6dp">
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:background="@drawable/bg_lesion_indicator_hem"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Hemorrhages (HEM)"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvHemStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Service Pending"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+
+                    <!-- MA -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:padding="6dp">
+
+                        <View
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:background="@drawable/bg_lesion_indicator_ma"
+                            android:layout_marginEnd="10dp" />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="Microaneurysms (MA)"
+                            android:textColor="@color/netra_text_primary"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvMaStatus"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Service Pending"
+                            android:textColor="@color/netra_text_secondary"
+                            android:textSize="11sp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- Button to open Stage 05 Interactive Workstation -->
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnOpenLesionWorkstation"
+                    android:layout_width="match_parent"
+                    android:layout_height="44dp"
+                    android:text="Open Interactive Lesion Workstation →"
+                    android:textColor="@color/netra_primary_teal"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:strokeColor="@color/netra_primary_teal"
+                    app:strokeWidth="1dp"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="10dp"
+                    android:layout_marginBottom="8dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Notice: Lesion segmentation is an independent AI analysis. Its visual masks do not directly explain or validate the DR severity grade."
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11sp"
+                    android:lineSpacingExtra="2dp" />
+            </LinearLayout>
+
+            <!-- Section 6: Understanding Your Screening -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_lesion_layer_card"
+                android:padding="16dp"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="4. Understanding Your Screening"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvOverallInterpretation"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="This report documents your retinal screening session. Both optical quality and session provenance are preserved for clinical review."
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="12sp"
+                    android:lineSpacingExtra="3dp"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- Section 7: Contextual Recommended Next Steps -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_quality_card_passed"
+                android:padding="16dp"
+                android:layout_marginBottom="14dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="5. Recommended Next Steps"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="14sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Clinical recommendations based on current screening data"
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11.5sp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginBottom="10dp" />
+
+                <LinearLayout
+                    android:id="@+id/layoutNextStepsContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical" />
+            </LinearLayout>
+
+            <!-- Section 8: Analysis Traceability & Model Metadata -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="@drawable/bg_mode_pill_unselected"
+                android:padding="14dp"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Analysis Traceability"
+                    android:textColor="@color/netra_text_primary"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    android:layout_marginBottom="6dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="• Optical Quality: NetraProof Multi-Parameter Validator v2.1\n• DR Grading: Five-fold EfficientNet-B0 Ensemble (Ordinal Regression)\n• Lesion Segmentation: U-Net + SE-ResNeXt50\n• Report Service: NetraProof Document Engine v1.0"
+                    android:textColor="@color/netra_text_secondary"
+                    android:textSize="11sp"
+                    android:lineSpacingExtra="3dp" />
+            </LinearLayout>
+
+            <!-- Action Buttons Footer: Download, Share, Return -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginBottom="10dp">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnDownloadPdfFooter"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="Download PDF"
+                    android:textColor="#FFFFFF"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:icon="@drawable/ic_download"
+                    app:iconTint="#FFFFFF"
+                    app:backgroundTint="@color/netra_primary_teal"
+                    app:cornerRadius="12dp"
+                    android:layout_marginEnd="6dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btnShareReportFooter"
+                    android:layout_width="0dp"
+                    android:layout_height="50dp"
+                    android:layout_weight="1"
+                    android:text="Share Report"
+                    android:textColor="@color/netra_primary_teal"
+                    android:textSize="13sp"
+                    android:textStyle="bold"
+                    app:icon="@drawable/ic_share"
+                    app:iconTint="@color/netra_primary_teal"
+                    app:strokeColor="@color/netra_primary_teal"
+                    app:strokeWidth="1.5dp"
+                    app:backgroundTint="#FFFFFF"
+                    app:cornerRadius="12dp" />
+            </LinearLayout>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnReturnToDashboard"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:text="Return to Screening Dashboard"
+                android:textColor="@color/netra_deep_navy"
+                android:textSize="13sp"
+                app:backgroundTint="#E4EAEE"
+                app:cornerRadius="12dp"
+                android:layout_marginBottom="16dp" />
+
+            <!-- Mandatory Clinical Safety Disclaimer -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:background="@drawable/bg_pill_status_teal"
+                android:padding="12dp"
+                android:gravity="top">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_shield_check_mint"
+                    app:tint="@color/netra_primary_teal"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginTop="2dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="NetraProof provides AI-assisted retinal screening information for informational and screening-support purposes. This report is not a confirmed medical diagnosis and does not replace a comprehensive examination by a qualified eye-care professional. Consult an ophthalmologist for clinical interpretation and further evaluation."
+                    android:textColor="@color/netra_deep_navy"
+                    android:textSize="10.5sp"
+                    android:lineSpacingExtra="2dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
+
+    <!-- Sticky Floating Navigation Bar -->
+    <include layout="@layout/view_netra_bottom_navbar" />
+
+</FrameLayout>
+

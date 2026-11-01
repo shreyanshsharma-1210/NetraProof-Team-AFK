@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    view_netra_bottom_navbar.xml — Sticky Floating Navigation Bar for NetraProof
+-->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/stickyBottomNavContainer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="bottom"
+    android:paddingStart="14dp"
+    android:paddingEnd="14dp"
+    android:paddingBottom="12dp"
+    android:clipChildren="false"
+    android:clipToPadding="false">
+
+    <!-- Floating Pill Background Bar -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:layout_gravity="bottom"
+        android:background="@drawable/bg_floating_navbar"
+        android:elevation="12dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp">
+
+        <!-- 1. Home Tab -->
+        <LinearLayout
+            android:id="@+id/bottomNavHome"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/ivBottomNavHome"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_nav_home"
+                app:tint="@color/netra_primary_teal" />
+
+            <TextView
+                android:id="@+id/tvBottomNavHome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Home"
+                android:textColor="@color/netra_primary_teal"
+                android:textSize="10.5sp"
+                android:textStyle="bold"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <!-- 2. Retina Screening Tab -->
+        <LinearLayout
+            android:id="@+id/bottomNavRetina"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/ivBottomNavRetina"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_action_retina"
+                app:tint="#687790" />
+
+            <TextView
+                android:id="@+id/tvBottomNavRetina"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Retina"
+                android:textColor="#687790"
+                android:textSize="10.5sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <!-- Center Spacer for Floating AI Button -->
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.2" />
+
+        <!-- 3. AI Screening Reports Tab -->
+        <LinearLayout
+            android:id="@+id/bottomNavReports"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/ivBottomNavReports"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_nav_medical_id"
+                app:tint="#687790" />
+
+            <TextView
+                android:id="@+id/tvBottomNavReports"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Reports"
+                android:textColor="#687790"
+                android:textSize="10.5sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+        <!-- 4. Diabetes360 / Profile Tab -->
+        <LinearLayout
+            android:id="@+id/bottomNavProfile"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:clickable="true"
+            android:focusable="true">
+
+            <ImageView
+                android:id="@+id/ivBottomNavProfile"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/ic_nav_profile"
+                app:tint="#687790" />
+
+            <TextView
+                android:id="@+id/tvBottomNavProfile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Diabetes360"
+                android:textColor="#687790"
+                android:textSize="10.5sp"
+                android:layout_marginTop="2dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <!-- Center Floating Netra AI Button -->
+    <FrameLayout
+        android:id="@+id/bottomNavFloatingAi"
+        android:layout_width="58dp"
+        android:layout_height="58dp"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="18dp"
+        android:background="@drawable/bg_floating_ai_fab"
+        android:elevation="16dp"
+        android:clickable="true"
+        android:focusable="true">
+
+        <ImageView
+            android:id="@+id/ivBottomNavFloatingAi"
+            android:layout_width="28dp"
+            android:layout_height="28dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_sparkle_teal"
+            app:tint="#FFFFFF" />
+
+    </FrameLayout>
+
+</FrameLayout>
+

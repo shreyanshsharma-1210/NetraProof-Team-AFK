@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Log Glycated Hemoglobin (HbA1c)"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Record your latest laboratory HbA1c test result."
+            android:textColor="@color/netra_text_secondary"
+            android:textSize="12sp"
+            android:layout_marginBottom="16dp" />
+
+        <!-- HbA1c Value & Unit -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="HbA1c Value *"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="14dp">
+
+            <EditText
+                android:id="@+id/etHba1cValue"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_weight="1"
+                android:background="@drawable/bg_netra_edittext"
+                android:hint="e.g. 6.8"
+                android:inputType="numberDecimal"
+                android:paddingStart="14dp"
+                android:paddingEnd="14dp"
+                android:textColor="@color/netra_text_primary"
+                android:textSize="14sp" />
+
+            <Spinner
+                android:id="@+id/spinnerHba1cUnit"
+                android:layout_width="120dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_netra_edittext" />
+        </LinearLayout>
+
+        <!-- Test Date -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Test Date *"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
+        <TextView
+            android:id="@+id/tvHba1cDatePicked"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_edittext"
+            android:gravity="center_vertical"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:text="Select Date"
+            android:textColor="@color/netra_primary_teal"
+            android:textSize="13sp"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Lab / Diagnostic Center Name -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Laboratory Name (Optional)"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/etHba1cLabName"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_edittext"
+            android:hint="e.g. Dr. Lal PathLabs"
+            android:paddingStart="14dp"
+            android:paddingEnd="14dp"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Source -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Report Source"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
+        <Spinner
+            android:id="@+id/spinnerHba1cSource"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_edittext"
+            android:layout_marginBottom="14dp" />
+
+        <!-- Attachment -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Lab Report Document (Optional)"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
+        <LinearLayout
+            android:id="@+id/btnPickHba1cAttachment"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_pill_feature"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:padding="8dp"
+            android:layout_marginBottom="14dp">
+
+            <ImageView
+                android:layout_width="18dp"
+                android:layout_height="18dp"
+                android:src="@drawable/ic_action_upload"
+                android:tint="@color/netra_primary_teal" />
+
+            <TextView
+                android:id="@+id/tvHba1cAttachmentStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="Attach PDF / Image Report"
+                android:textColor="@color/netra_primary_teal"
+                android:textSize="13sp"
+                android:textStyle="bold" />
+        </LinearLayout>
+
+        <!-- Notes -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Notes (Optional)"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="6dp" />
+
+        <EditText
+            android:id="@+id/etHba1cNotes"
+            android:layout_width="match_parent"
+            android:layout_height="72dp"
+            android:background="@drawable/bg_netra_edittext"
+            android:gravity="top|start"
+            android:hint="e.g. Quarterly checkup ordered by endocrinologist"
+            android:padding="12dp"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp" />
+
+    </LinearLayout>
+</ScrollView>
+

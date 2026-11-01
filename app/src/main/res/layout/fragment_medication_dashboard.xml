@@ -1,0 +1,868 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_medication_dashboard.xml — NetraProof Medication Dashboard
+    Pixel-matched to NetraProof design reference.
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F7FCF9">
+
+    <androidx.core.widget.NestedScrollView
+        android:id="@+id/medScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="100dp">
+
+            <!-- ═══════════════════════════════════════════════════
+                 1. SANJEEVANI BRAND HEADER (Exact match to Home Screen)
+                 ═══════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/medHeaderSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="18dp"
+                android:paddingEnd="18dp"
+                android:paddingTop="8dp"
+                android:paddingBottom="2dp">
+
+                <!-- Brand Logo + Tagline (Exact match to Home Screen) -->
+                <LinearLayout
+                    android:id="@+id/brandContainer"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/ivBrandLogo"
+                        android:layout_width="170dp"
+                        android:layout_height="44dp"
+                        android:adjustViewBounds="true"
+                        android:scaleType="fitStart"
+                        android:src="@drawable/app_header_logo"
+                        android:contentDescription="NetraProof Logo" />
+                </LinearLayout>
+
+                <!-- Notification Bell with red dot -->
+                <FrameLayout
+                    android:id="@+id/btnNotification"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:layout_marginEnd="8dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_bell_outline"
+                        app:tint="#0D2140" />
+
+                    <View
+                        android:id="@+id/notifDot"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:layout_gravity="top|end"
+                        android:layout_marginTop="7dp"
+                        android:layout_marginEnd="7dp"
+                        android:background="@drawable/bg_pill_status_high" />
+                </FrameLayout>
+
+                <!-- User Avatar Pill -->
+                <FrameLayout
+                    android:id="@+id/avatarContainer"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:background="@drawable/bg_avatar_circle"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <TextView
+                        android:id="@+id/tvAvatarInitials"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="A"
+                        android:textColor="#087F68"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+                </FrameLayout>
+
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════
+                 2. MEDICATION HERO WITH BOTANICAL ARTWORK
+                 ═══════════════════════════════════════════════════ -->
+            <FrameLayout
+                android:id="@+id/medHeroSection"
+                android:layout_width="match_parent"
+                android:layout_height="145dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="0dp"
+                android:layout_marginBottom="8dp">
+
+                <!-- Background Illustration Layer on Right (Shifted Further Right) -->
+                <ImageView
+                    android:id="@+id/ivHeroArt"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_gravity="end"
+                    android:scaleType="fitEnd"
+                    android:adjustViewBounds="true"
+                    android:layout_marginEnd="-20dp"
+                    android:src="@drawable/bg_medication_hero_art"
+                    android:alpha="0.95"
+                    android:contentDescription="Medication Botanical Hero" />
+
+                <!-- Foreground Content -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:gravity="center_vertical">
+
+                    <!-- Top Row: Right Slogan + Settings Button -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <View
+                            android:layout_width="0dp"
+                            android:layout_height="1dp"
+                            android:layout_weight="1" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Right Medicine\nRight Time\nA Safer You"
+                            android:textColor="#087F68"
+                            android:textSize="10.5sp"
+                            android:textStyle="bold"
+                            android:gravity="end"
+                            android:lineSpacingExtra="1dp"
+                            android:layout_marginEnd="10dp" />
+
+                        <!-- Settings Pill Button -->
+                        <LinearLayout
+                            android:id="@+id/settingsIcon"
+                            android:layout_width="wrap_content"
+                            android:layout_height="34dp"
+                            android:background="@drawable/bg_settings_pill"
+                            android:orientation="horizontal"
+                            android:gravity="center"
+                            android:paddingStart="10dp"
+                            android:paddingEnd="12dp"
+                            android:clickable="true"
+                            android:focusable="true">
+
+                            <ImageView
+                                android:layout_width="16dp"
+                                android:layout_height="16dp"
+                                android:src="@drawable/ic_nav_settings"
+                                app:tint="#0D2140" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Settings"
+                                android:textColor="#0D2140"
+                                android:textSize="11.5sp"
+                                android:textStyle="bold"
+                                android:layout_marginStart="4dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+
+                    <!-- Bottom Titles -->
+                    <TextView
+                        android:id="@+id/tvMedHeroTitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="My Medication"
+                        android:textColor="#0D2140"
+                        android:textSize="30sp"
+                        android:textStyle="bold"
+                        android:letterSpacing="-0.02"
+                        android:layout_marginTop="4dp" />
+
+                    <TextView
+                        android:id="@+id/tvMedHeroSubtitle"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Stay consistent. Stay healthier."
+                        android:textColor="#687790"
+                        android:textSize="13.5sp"
+                        android:layout_marginTop="2dp" />
+
+                </LinearLayout>
+
+            </FrameLayout>
+
+            <!-- ═══════════════════════════════════════════════════
+                 3. HIGH SEVERITY INTERACTION ALERT BANNER
+                 ═══════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/card_ddi_banner"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:background="@drawable/bg_med_interaction_alert"
+                android:padding="12dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="12dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:visibility="visible">
+
+                <!-- Warning Icon -->
+                <ImageView
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:src="@drawable/ic_alert_triangle_red" />
+
+                <!-- Text -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginEnd="6dp">
+
+                    <TextView
+                        android:id="@+id/tv_ddi_banner_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="High Severity Interaction Detected"
+                        android:textColor="#D92D32"
+                        android:textSize="13sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/tv_ddi_banner_desc"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Warfarin ↔ Paracetamol (Increased bleeding risk)"
+                        android:textColor="#687790"
+                        android:textSize="11sp"
+                        android:layout_marginTop="2dp" />
+                </LinearLayout>
+
+                <!-- Action button -->
+                <TextView
+                    android:id="@+id/btn_ddi_view_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="View Details >"
+                    android:textColor="#D92D32"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════
+                 4. DATE NAVIGATOR & TODAY BUTTON
+                 ═══════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/medDateNavSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="8dp">
+
+                <!-- Month Year with Chevrons -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:id="@+id/monthYearText"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="April 2026"
+                        android:textColor="#0D2140"
+                        android:textSize="16sp"
+                        android:textStyle="bold" />
+
+                    <ImageView
+                        android:id="@+id/btnDatePrev"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_chevron_left"
+                        android:padding="4dp"
+                        app:tint="#0D2140"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginStart="8dp" />
+
+                    <ImageView
+                        android:id="@+id/btnDateNext"
+                        android:layout_width="26dp"
+                        android:layout_height="26dp"
+                        android:src="@drawable/ic_chevron_right"
+                        android:padding="4dp"
+                        app:tint="#0D2140"
+                        android:clickable="true"
+                        android:focusable="true"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+
+                <!-- Today Button -->
+                <LinearLayout
+                    android:id="@+id/btnDateToday"
+                    android:layout_width="wrap_content"
+                    android:layout_height="32dp"
+                    android:background="@drawable/bg_med_date_today_btn"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="14dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="14dp"
+                        android:layout_height="14dp"
+                        android:src="@drawable/ic_today_calendar"
+                        app:tint="#087F68" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Today"
+                        android:textColor="#087F68"
+                        android:textSize="12.5sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="4dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════
+                 5. WEEK DATE STRIP
+                 ═══════════════════════════════════════════════════ -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/calendarRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="12dp"
+                android:paddingEnd="12dp"
+                android:layout_marginBottom="14dp"
+                android:overScrollMode="never"
+                android:clipToPadding="false" />
+
+            <!-- ═══════════════════════════════════════════════════
+                 6. 3 SUMMARY CARDS
+                 ═══════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/medSummarySection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="16dp">
+
+                <!-- 1. Scheduled Card -->
+                <LinearLayout
+                    android:id="@+id/cardSummaryScheduled"
+                    android:layout_width="0dp"
+                    android:layout_height="72dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_med_summary_scheduled"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:layout_marginEnd="8dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_calendar_check" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="8dp">
+
+                        <TextView
+                            android:id="@+id/tvSummaryScheduledCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="4"
+                            android:textColor="#087F68"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Scheduled"
+                            android:textColor="#087F68"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 2. Pending Card -->
+                <LinearLayout
+                    android:id="@+id/cardSummaryPending"
+                    android:layout_width="0dp"
+                    android:layout_height="72dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_med_summary_pending"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="10dp"
+                    android:layout_marginEnd="8dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_clock_pending" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="8dp">
+
+                        <TextView
+                            android:id="@+id/tvSummaryPendingCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="1"
+                            android:textColor="#D97706"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Pending"
+                            android:textColor="#D97706"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- 3. Missed Card -->
+                <LinearLayout
+                    android:id="@+id/cardSummaryMissed"
+                    android:layout_width="0dp"
+                    android:layout_height="72dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_med_summary_missed"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical"
+                    android:padding="10dp">
+
+                    <ImageView
+                        android:layout_width="24dp"
+                        android:layout_height="24dp"
+                        android:src="@drawable/ic_missed_cross" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:layout_marginStart="8dp">
+
+                        <TextView
+                            android:id="@+id/tvSummaryMissedCount"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="0"
+                            android:textColor="#DC2626"
+                            android:textSize="18sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Missed"
+                            android:textColor="#DC2626"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════
+                 7. TODAY'S SCHEDULE HEADER + TAKE ALL DUE
+                 ═══════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/medScheduleHeaderRow"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginBottom="10dp">
+
+                <TextView
+                    android:id="@+id/tvScheduleHeader"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Today's Schedule"
+                    android:textColor="#0D2140"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <!-- Take All Due Pill Button -->
+                <LinearLayout
+                    android:id="@+id/btnTakeAllDue"
+                    android:layout_width="wrap_content"
+                    android:layout_height="34dp"
+                    android:background="@drawable/bg_take_all_due_btn"
+                    android:orientation="horizontal"
+                    android:gravity="center"
+                    android:paddingStart="12dp"
+                    android:paddingEnd="14dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_nav_medication"
+                        app:tint="#087F68" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Take All Due"
+                        android:textColor="#087F68"
+                        android:textSize="12sp"
+                        android:textStyle="bold"
+                        android:layout_marginStart="5dp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <!-- Schedule RecyclerView (Timeline style) -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/scheduleRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:overScrollMode="never"
+                android:nestedScrollingEnabled="false" />
+
+            <!-- Empty State for Today's Schedule -->
+            <LinearLayout
+                android:id="@+id/emptyScheduleLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="24dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="56dp"
+                    android:layout_height="56dp"
+                    android:src="@drawable/ic_nav_medication"
+                    app:tint="#687790"
+                    android:alpha="0.5" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No medications scheduled for this day"
+                    android:textColor="#687790"
+                    android:textSize="13sp"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+
+
+            <!-- ═══════════════════════════════════════════════════
+                 8B. MEDICINE CABINET (MY MEDICATIONS)
+                 ═══════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/medCabinetSectionHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="8dp">
+
+                <TextView
+                    android:id="@+id/tvCabinetTitle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="My Medications"
+                    android:textColor="#0D2140"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/tvCabinetAddBtn"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+ Add New"
+                    android:textColor="#087F68"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    android:clickable="true"
+                    android:focusable="true" />
+            </LinearLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/medicationRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:overScrollMode="never"
+                android:nestedScrollingEnabled="false" />
+
+            <LinearLayout
+                android:id="@+id/emptyCabinetLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+                android:padding="20dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/ic_nav_medication"
+                    app:tint="#687790"
+                    android:alpha="0.4" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="No medications in your cabinet yet"
+                    android:textColor="#687790"
+                    android:textSize="13sp"
+                    android:layout_marginTop="8dp" />
+            </LinearLayout>
+
+            <!-- ═══════════════════════════════════════════════════
+                 9. 4 QUICK ACTION CARDS (Scan, Upload, Interactions, Refill)
+                 ═══════════════════════════════════════════════════ -->
+            <LinearLayout
+                android:id="@+id/medQuickActionsSection"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:layout_marginTop="20dp">
+
+                <!-- 1. Add Medicine -->
+                <LinearLayout
+                    android:id="@+id/btnQuickAddMed"
+                    android:layout_width="0dp"
+                    android:layout_height="105dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_card_white"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <FrameLayout
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/bg_med_summary_scheduled">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_add_medicine" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Add Medicine"
+                        android:textColor="#0D2140"
+                        android:textSize="10.5sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Scan or Manual"
+                        android:textColor="#687790"
+                        android:textSize="8.5sp" />
+                </LinearLayout>
+
+                <!-- 2. Scan Medicine -->
+                <LinearLayout
+                    android:id="@+id/btnQuickScanMed"
+                    android:layout_width="0dp"
+                    android:layout_height="105dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_card_white"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <FrameLayout
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/bg_iot_pill_streaming">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_action_scan" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Scan Medicine"
+                        android:textColor="#0D2140"
+                        android:textSize="10.5sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="OCR + Auto Fill"
+                        android:textColor="#687790"
+                        android:textSize="8.5sp" />
+                </LinearLayout>
+
+                <!-- 3. Check Interactions -->
+                <LinearLayout
+                    android:id="@+id/btnQuickInteractions"
+                    android:layout_width="0dp"
+                    android:layout_height="105dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_card_white"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:layout_marginEnd="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <FrameLayout
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/bg_iot_pill_ai">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_check_interactions" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Check Interactions"
+                        android:textColor="#0D2140"
+                        android:textSize="9.5sp"
+                        android:textStyle="bold"
+                        android:gravity="center"
+                        android:layout_marginTop="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AI Analysis"
+                        android:textColor="#687790"
+                        android:textSize="8.5sp" />
+                </LinearLayout>
+
+                <!-- 4. Refill Reminder -->
+                <LinearLayout
+                    android:id="@+id/btnQuickRefills"
+                    android:layout_width="0dp"
+                    android:layout_height="105dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_card_white"
+                    android:orientation="vertical"
+                    android:gravity="center"
+                    android:padding="6dp"
+                    android:clickable="true"
+                    android:focusable="true">
+
+                    <FrameLayout
+                        android:layout_width="38dp"
+                        android:layout_height="38dp"
+                        android:background="@drawable/bg_pill_status_moderate">
+
+                        <ImageView
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_refill_reminder" />
+                    </FrameLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Refill Reminder"
+                        android:textColor="#0D2140"
+                        android:textSize="10.5sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="6dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Never miss a dose"
+                        android:textColor="#687790"
+                        android:textSize="8.5sp" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,593 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    fragment_iot_ecg_popup.xml
+    Full-screen medical IoT ECG & telemetry monitor with live AI insights powered by Groq.
+-->
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/color_background">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:paddingTop="16dp"
+            android:paddingBottom="36dp">
+
+            <!-- Drag Handle / Header Pill -->
+            <View
+                android:layout_width="44dp"
+                android:layout_height="5dp"
+                android:background="@drawable/bg_pill_status_normal"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="14dp" />
+
+            <!-- Header Row -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <FrameLayout
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/bg_pill_status_normal">
+
+                    <ImageView
+                        android:layout_width="22dp"
+                        android:layout_height="22dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/ic_iot_chip"
+                        app:tint="#087F68" />
+                </FrameLayout>
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:layout_marginStart="12dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="IoT Cardiac &amp; Vitals Gateway"
+                        android:textColor="#0D2140"
+                        android:textSize="17sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AD8232 ECG • MAX30102 • NTC Thermistor"
+                        android:textColor="#687790"
+                        android:textSize="11sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:id="@+id/btnCloseIotPopup"
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:src="@drawable/ic_close"
+                    android:padding="8dp"
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    app:tint="#687790"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="Close" />
+            </LinearLayout>
+
+            <!-- ─── 1. CONNECTING STATE ──────────────────────────────────── -->
+            <LinearLayout
+                android:id="@+id/layoutConnecting"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center_horizontal"
+                android:layout_marginTop="48dp"
+                android:layout_marginBottom="48dp">
+
+                <!-- Animated Pulse Rings -->
+                <FrameLayout
+                    android:layout_width="110dp"
+                    android:layout_height="110dp"
+                    android:layout_gravity="center_horizontal">
+
+                    <ImageView
+                        android:id="@+id/ivRingOuter"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:src="@drawable/bg_iot_connect_ring"
+                        android:alpha="0.3"
+                        android:scaleX="1.3"
+                        android:scaleY="1.3" />
+
+                    <ImageView
+                        android:id="@+id/ivRingMiddle"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center"
+                        android:src="@drawable/bg_iot_connect_ring"
+                        android:alpha="0.6" />
+
+                    <FrameLayout
+                        android:layout_width="52dp"
+                        android:layout_height="52dp"
+                        android:layout_gravity="center"
+                        android:background="@drawable/bg_pill_status_normal">
+
+                        <ImageView
+                            android:layout_width="28dp"
+                            android:layout_height="28dp"
+                            android:layout_gravity="center"
+                            android:src="@drawable/ic_iot_chip"
+                            app:tint="#087F68" />
+                    </FrameLayout>
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Pairing with ESP32 Gateway..."
+                    android:textColor="#0D2140"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:gravity="center_vertical">
+
+                    <View
+                        android:id="@+id/dot1"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_status_chip_taken" />
+
+                    <View
+                        android:id="@+id/dot2"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_status_chip_taken"
+                        android:layout_marginStart="6dp"
+                        android:alpha="0.4" />
+
+                    <View
+                        android:id="@+id/dot3"
+                        android:layout_width="8dp"
+                        android:layout_height="8dp"
+                        android:background="@drawable/bg_status_chip_taken"
+                        android:layout_marginStart="6dp"
+                        android:alpha="0.2" />
+                </LinearLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Establishing BLE 5.0 500Hz Telemetry Stream"
+                    android:textColor="#9BA9B8"
+                    android:textSize="12sp"
+                    android:layout_marginTop="10dp" />
+            </LinearLayout>
+
+            <!-- ─── 2. CONNECTED FULL-SCREEN STATE ──────────────────────── -->
+            <LinearLayout
+                android:id="@+id/layoutConnected"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:layout_marginTop="14dp">
+
+                <!-- Status Pills Bar -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● Gateway Connected"
+                        android:textColor="#149B66"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_iot_pill_connected"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="● 500Hz Live Stream"
+                        android:textColor="#2563EB"
+                        android:textSize="11sp"
+                        android:textStyle="bold"
+                        android:background="@drawable/bg_iot_pill_streaming"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:paddingTop="4dp"
+                        android:paddingBottom="4dp"
+                        android:layout_marginStart="8dp" />
+
+                    <View
+                        android:layout_width="0dp"
+                        android:layout_height="1dp"
+                        android:layout_weight="1" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="🔋 94%"
+                        android:textColor="#087F68"
+                        android:textSize="11sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <!-- ECG Waveform Card -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_ecg_canvas_container"
+                    android:orientation="vertical"
+                    android:padding="14dp"
+                    android:layout_marginTop="14dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:text="📈 Lead II Continuous ECG"
+                            android:textColor="#0D2140"
+                            android:textSize="14sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="● Calibrated 25mm/s"
+                            android:textColor="#087F68"
+                            android:textSize="11sp"
+                            android:textStyle="bold" />
+                    </LinearLayout>
+
+                    <!-- ECG Canvas & Primary BPM -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical"
+                        android:layout_marginTop="10dp">
+
+                        <com.emergency.patient.views.LiveEcgView
+                            android:id="@+id/popupLiveEcgView"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            android:gravity="end"
+                            android:layout_marginStart="14dp">
+
+                            <LinearLayout
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:orientation="horizontal"
+                                android:gravity="center_vertical">
+
+                                <TextView
+                                    android:id="@+id/tvPopupEcgBpm"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="72"
+                                    android:textColor="#0D2140"
+                                    android:textSize="28sp"
+                                    android:textStyle="bold" />
+
+                                <ImageView
+                                    android:layout_width="20dp"
+                                    android:layout_height="20dp"
+                                    android:src="@drawable/ic_heart_pulse"
+                                    android:layout_marginStart="4dp" />
+                            </LinearLayout>
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="BPM (Heart Rate)"
+                                android:textColor="#687790"
+                                android:textSize="11sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Sinus Rhythm"
+                                android:textColor="#149B66"
+                                android:textSize="10.5sp"
+                                android:textStyle="bold"
+                                android:background="@drawable/bg_pill_status_normal"
+                                android:paddingStart="8dp"
+                                android:paddingEnd="8dp"
+                                android:paddingTop="3dp"
+                                android:paddingBottom="3dp"
+                                android:layout_marginTop="4dp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ─── Live Physiological Vitals Telemetry Grid ───────────── -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Live Sensor Telemetry"
+                    android:textColor="#0D2140"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="16dp" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp">
+
+                    <!-- SpO2 -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_white"
+                        android:elevation="1.5dp"
+                        android:padding="12dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🩸 SpO₂ (Oxygen)"
+                            android:textColor="#687790"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvEcgSpo2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="98%"
+                            android:textColor="#0D2140"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Optimal (95-100%)"
+                            android:textColor="#149B66"
+                            android:textSize="10sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <!-- Temp -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_white"
+                        android:elevation="1.5dp"
+                        android:padding="12dp"
+                        android:orientation="vertical"
+                        android:layout_marginStart="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="🌡️ Skin Temp"
+                            android:textColor="#687790"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvEcgTemp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="36.6°C"
+                            android:textColor="#0D2140"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Afebrile (Normal)"
+                            android:textColor="#149B66"
+                            android:textSize="10sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+
+                    <!-- BP -->
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:background="@drawable/bg_card_white"
+                        android:elevation="1.5dp"
+                        android:padding="12dp"
+                        android:orientation="vertical"
+                        android:layout_marginStart="10dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💓 Est. BP"
+                            android:textColor="#687790"
+                            android:textSize="11sp" />
+
+                        <TextView
+                            android:id="@+id/tvEcgBp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="118/76"
+                            android:textColor="#0D2140"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:layout_marginTop="4dp" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Normotensive"
+                            android:textColor="#149B66"
+                            android:textSize="10sp"
+                            android:layout_marginTop="2dp" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <!-- ─── 3. LIVE AI INSIGHTS POWERED BY GROQ ────────────────── -->
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/bg_card_white"
+                    android:elevation="2.5dp"
+                    android:orientation="vertical"
+                    android:padding="16dp"
+                    android:layout_marginTop="16dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <FrameLayout
+                            android:layout_width="32dp"
+                            android:layout_height="32dp"
+                            android:background="@drawable/bg_pill_status_normal">
+
+                            <ImageView
+                                android:layout_width="18dp"
+                                android:layout_height="18dp"
+                                android:layout_gravity="center"
+                                android:src="@drawable/ic_sparkle_teal"
+                                app:tint="#087F68" />
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical"
+                            android:layout_marginStart="10dp">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Groq AI Cardiac Clinical Assessment"
+                                android:textColor="#0D2140"
+                                android:textSize="14sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="Powered by Groq Compound LLM &amp; EHR Context"
+                                android:textColor="#087F68"
+                                android:textSize="10.5sp" />
+                        </LinearLayout>
+
+                        <ProgressBar
+                            android:id="@+id/progressAiEcg"
+                            android:layout_width="20dp"
+                            android:layout_height="20dp"
+                            android:indeterminateTint="#087F68"
+                            android:visibility="gone" />
+                    </LinearLayout>
+
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:background="#E2E8F0"
+                        android:layout_marginTop="12dp"
+                        android:layout_marginBottom="12dp" />
+
+                    <!-- Live AI Content Text -->
+                    <TextView
+                        android:id="@+id/tvAiEcgInsights"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Analyzing live telemetry against patient records..."
+                        android:textColor="#334155"
+                        android:textSize="13sp"
+                        android:lineSpacingExtra="3.5dp" />
+
+                    <!-- Actionable Precautions / Recommendations Box -->
+                    <LinearLayout
+                        android:id="@+id/layoutAiRecommendations"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:background="@drawable/bg_condition_chip"
+                        android:orientation="vertical"
+                        android:padding="12dp"
+                        android:layout_marginTop="12dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="💡 Personalized Cardiac Advice:"
+                            android:textColor="#087F68"
+                            android:textSize="12sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tvAiEcgAdvice"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="• Sinus rhythm is stable with good heart rate variability.\n• Keep electrolyte hydration steady during current weather conditions."
+                            android:textColor="#475569"
+                            android:textSize="12sp"
+                            android:lineSpacingExtra="2.5dp"
+                            android:layout_marginTop="4dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <!-- TinyML On-Device Badge -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="🔒 On-Device TinyML: 0 Arrhythmia triggers in current session. Real-time telemetry encrypted via AES-256."
+                    android:textColor="#687790"
+                    android:textSize="11sp"
+                    android:layout_marginTop="14dp"
+                    android:gravity="center_horizontal" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

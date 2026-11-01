@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingHorizontal="4dp"
+    android:layout_marginBottom="12dp">
+
+    <!-- Timeline indicator matching item_schedule.xml -->
+    <LinearLayout
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/tv_schedule_hour"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="09:00"
+            android:textSize="14sp"
+            android:textColor="@color/color_text_primary"
+            android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/tv_schedule_ampm"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AM"
+            android:textSize="10sp"
+            android:textColor="@color/color_text_secondary"
+            android:textStyle="bold"/>
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_schedule_item"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_marginStart="8dp"
+        app:cardElevation="1.5dp"
+        app:cardCornerRadius="16dp"
+        app:cardBackgroundColor="@color/color_surface"
+        android:foreground="?attr/selectableItemBackground">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:padding="14dp"
+            android:gravity="center_vertical">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tv_schedule_dose_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Morning Dose"
+                    android:textSize="15sp"
+                    android:textStyle="bold"
+                    android:textColor="@color/color_text_primary"/>
+
+                <TextView
+                    android:id="@+id/tv_schedule_time_details"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="🔔 Reminder at 09:00 AM"
+                    android:textSize="12sp"
+                    android:textColor="@color/color_text_secondary"
+                    android:layout_marginTop="2dp"/>
+            </LinearLayout>
+
+            <!-- Edit Button matching medication page -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_adjust_time"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFF3E0"
+                app:strokeWidth="1dp"
+                app:strokeColor="#FFE0B2"
+                android:layout_marginStart="6dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@android:drawable/ic_menu_edit"
+                    android:padding="8dp"
+                    app:tint="@color/color_primary_orange"/>
+            </com.google.android.material.card.MaterialCardView>
+
+            <!-- Delete / Remove Time Button -->
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/btn_remove_time"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                app:cardCornerRadius="10dp"
+                app:cardElevation="0dp"
+                app:cardBackgroundColor="#FFEBEE"
+                app:strokeWidth="1dp"
+                app:strokeColor="#FFCDD2"
+                android:layout_marginStart="6dp"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@android:drawable/ic_menu_delete"
+                    android:padding="8dp"
+                    app:tint="#D32F2F"/>
+            </com.google.android.material.card.MaterialCardView>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</LinearLayout>

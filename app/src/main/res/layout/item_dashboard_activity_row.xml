@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    item_dashboard_activity_row.xml — NetraProof Dynamic Activity & Reminder Row Item
+-->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/bg_netra_quick_action"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:padding="14dp"
+    android:layout_marginBottom="8dp"
+    android:clickable="true"
+    android:focusable="true">
+
+    <!-- Category / Type Icon Frame -->
+    <FrameLayout
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:background="@drawable/bg_netra_pill_feature"
+        android:layout_marginEnd="12dp">
+
+        <ImageView
+            android:id="@+id/ivActivityRowIcon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_action_upload"
+            app:tint="#FFFFFF" />
+    </FrameLayout>
+
+    <!-- Title and Subtitle / Timestamp -->
+    <LinearLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvActivityRowTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Health Activity Title"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+        <TextView
+            android:id="@+id/tvActivityRowTime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Today, 10:30 AM"
+            android:textColor="@color/netra_text_secondary"
+            android:textSize="11sp"
+            android:layout_marginTop="2dp" />
+    </LinearLayout>
+
+    <!-- Status Action Pill -->
+    <TextView
+        android:id="@+id/tvActivityRowStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Verified"
+        android:textColor="@color/netra_primary_teal"
+        android:textSize="11.5sp"
+        android:textStyle="bold"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:paddingTop="4dp"
+        android:paddingBottom="4dp" />
+
+</LinearLayout>
+

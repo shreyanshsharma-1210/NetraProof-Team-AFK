@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inspection Date *"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/tvCheckDatePicked"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_search"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Inspected Foot / Side *"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <Spinner
+            android:id="@+id/spinnerFootSide"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_search"
+            android:padding="8dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Observed Skin Condition"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <Spinner
+            android:id="@+id/spinnerSkinCondition"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_search"
+            android:padding="8dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Wound / Blister / Break Observed"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <Spinner
+            android:id="@+id/spinnerWoundObservation"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_search"
+            android:padding="8dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="User Observation Notes (Optional)"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/etCheckNotes"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:hint="e.g. Skin slightly dry around heels; applied moisturizer"
+            android:textColor="@color/netra_text_primary"
+            android:background="@drawable/bg_netra_search"
+            android:padding="12dp"
+            android:gravity="top|start"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+</ScrollView>
+

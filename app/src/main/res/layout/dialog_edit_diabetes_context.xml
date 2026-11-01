@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Optional Diabetes Health Context"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="14sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Providing context is completely voluntary and helps personalize your record keeping."
+            android:textColor="@color/netra_text_secondary"
+            android:textSize="11.5sp"
+            android:layout_marginTop="2dp"
+            android:layout_marginBottom="12dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Diabetes Classification"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <Spinner
+            android:id="@+id/spinnerDiabetesType"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_search"
+            android:padding="8dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Years Since Diagnosis"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/etDurationYears"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:inputType="number"
+            android:hint="e.g. 5"
+            android:textColor="@color/netra_text_primary"
+            android:background="@drawable/bg_netra_search"
+            android:padding="12dp"
+            android:layout_marginTop="4dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Last Comprehensive Doctor Check-Up"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <TextView
+            android:id="@+id/tvContextCheckupDate"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:background="@drawable/bg_netra_search"
+            android:padding="12dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="13sp"
+            android:layout_marginTop="4dp"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Relevant Medical Background / Notes"
+            android:textColor="@color/netra_text_primary"
+            android:textSize="12sp"
+            android:textStyle="bold"
+            android:layout_marginTop="12dp" />
+
+        <EditText
+            android:id="@+id/etContextNotes"
+            android:layout_width="match_parent"
+            android:layout_height="64dp"
+            android:hint="e.g. Prescribed Metformin; annual eye exams scheduled"
+            android:textColor="@color/netra_text_primary"
+            android:background="@drawable/bg_netra_search"
+            android:padding="12dp"
+            android:gravity="top|start"
+            android:layout_marginTop="4dp" />
+
+    </LinearLayout>
+</ScrollView>
+

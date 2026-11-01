@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <!-- Background Squircle Gradient -->
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#F2FCF9"/>
+      <stop offset="50%" stop-color="#E1F8F1"/>
+      <stop offset="100%" stop-color="#CDF3E8"/>
+    </linearGradient>
+
+    <!-- Teal/Emerald Drop Gradient -->
+    <linearGradient id="dropGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0E5F52"/>
+      <stop offset="40%" stop-color="#147D6E"/>
+      <stop offset="80%" stop-color="#1E9E8A"/>
+      <stop offset="100%" stop-color="#36C2AC"/>
+    </linearGradient>
+
+    <!-- Accent Mint Gradient -->
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#229C88"/>
+      <stop offset="100%" stop-color="#46D8C0"/>
+    </linearGradient>
+
+    <!-- Shadow filter -->
+    <filter id="softShadow" x="-10%" y="-10%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#0A4D42" flood-opacity="0.18"/>
+    </filter>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="6" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- App Icon Base Squircle -->
+  <rect x="32" y="32" width="448" height="448" rx="112" fill="url(#bgGrad)" stroke="#BCEADF" stroke-width="3" filter="url(#softShadow)"/>
+
+  <!-- Stylized Teardrop Outer Path -->
+  <path d="M 256 96 
+           C 256 96, 350 200, 350 274 
+           A 94 94 0 0 1 162 274 
+           C 162 200, 256 96, 256 96 Z" 
+        fill="none" stroke="url(#dropGrad)" stroke-width="26" stroke-linecap="round" stroke-linejoin="round"/>
+
+  <!-- Lower crescent swoosh wrapping bottom-right -->
+  <path d="M 194 340 
+           C 230 384, 310 380, 348 340 
+           C 382 304, 386 244, 360 200" 
+        fill="none" stroke="url(#accentGrad)" stroke-width="14" stroke-linecap="round" opacity="0.85"/>
+
+  <!-- Medical Plus Symbol on Top-Right of Drop -->
+  <g transform="translate(324, 154)">
+    <rect x="0" y="14" width="46" height="18" rx="9" fill="#20A38E"/>
+    <rect x="14" y="0" width="18" height="46" rx="9" fill="#20A38E"/>
+  </g>
+
+  <!-- Glucometer Device Center Body -->
+  <rect x="212" y="210" width="88" height="118" rx="28" fill="#FFFFFF" stroke="#147D6E" stroke-width="12" filter="url(#softShadow)"/>
+  
+  <!-- Glucometer Screen / Display -->
+  <rect x="228" y="226" width="56" height="48" rx="12" fill="#E8F9F4" stroke="#147D6E" stroke-width="4"/>
+  
+  <!-- Tiny Blood Drop inside Screen -->
+  <path d="M 256 236 C 256 236, 266 248, 266 254 A 10 10 0 0 1 246 254 C 246 248, 256 236, 256 236 Z" fill="#147D6E"/>
+
+  <!-- Glucometer 2 Buttons -->
+  <circle cx="238" cy="302" r="6" fill="#1E9E8A"/>
+  <circle cx="274" cy="302" r="6" fill="#1E9E8A"/>
+
+  <!-- Test Strip Base -->
+  <rect x="246" y="328" width="20" height="26" rx="4" fill="#FFFFFF" stroke="#147D6E" stroke-width="6"/>
+
+  <!-- ECG / Pulse Line trailing from bottom of glucometer to right -->
+  <path d="M 276 348 
+           L 300 348 
+           L 308 368 
+           L 322 318 
+           L 334 362 
+           L 344 348 
+           L 374 348" 
+        fill="none" stroke="#1E9E8A" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>
+
